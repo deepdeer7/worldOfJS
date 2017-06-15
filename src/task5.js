@@ -56,27 +56,26 @@ function countDifficult(context) {
 			throw new SyntaxError('Data invalid');
 		}
 
-	var even = 0;
-	var odd = 0;
+	
 	var count = 0;
+	
 
 	for ( var i = min; i <= max; i++) {
+		
+		var even = 0;
+		var odd = 0;
 		var str = i + '';
 		var arr = str.split('');
 
 		for ( var j = 0; j < arr.length; j++) {
-			if ( arr[j] %2 == 0) {
-				even += +arr[j];
-			} else {
-				odd += +arr[j];
-			}
+
+			 (arr[j] %2 == 0) ?   even += +arr[j] :  odd += +arr[j];
 		}
 
 		if ( even == odd) {
 			count++;
 		}
-		 even = 0;
-	     odd = 0;
+		 
     }
 
    return count;

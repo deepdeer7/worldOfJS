@@ -2,9 +2,10 @@
 "use strict";
 
 var contextTwo = {
-  length: 10
+  length: 5
 
 }
+
 
 
 function countFib(context) {
@@ -44,13 +45,16 @@ function countFib(context) {
 
   return arr;
    
-  } else if (  context.length  ) {
+  } else if (  context.length || context.length == 0  ) {
 
       if ( isNaN(context.length) || context.length <= 0 ) {
         throw new SyntaxError('Data invalid');
       }
 
-      arr.push(a);
+        arr.push(a);
+
+      if ( context.length == 1 ) return arr;
+
       arr.push(b);
 
       for ( i = 3; ; i++) {
