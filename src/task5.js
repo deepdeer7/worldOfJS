@@ -68,8 +68,8 @@ function countDifficult(context) {
 		    arr = i.toString().split('');
 
 		    for (j = 0; j < arr.length; j++) {
-		        num = Number(arr[j])
-			    num %2 == 0 ? even += num : odd += num;
+		        num = Number(arr[j]);
+                num %2 == 0 ? even += num : odd += num;
 		    }
 
 		    if (even === odd) {

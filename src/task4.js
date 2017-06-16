@@ -14,7 +14,7 @@ function getPalindrom(num) {
 	    strOfPalindrom = num.toString();
 
 		for (i = 0; i < strOfPalindrom.length; i++) {
-	        len = strOfPalindrom.length;
+            len = strOfPalindrom.length;
 
 		    for (j = i; j < strOfPalindrom.length; j++) {
 			    testOfPalindrom = strOfPalindrom.slice(i, len--);

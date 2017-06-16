@@ -3,8 +3,8 @@
 "use strict"
 
 var envelopeOne = {
-    a: 9.4,
-	b: 12.1
+    a: 9.4, 
+    c: 6
 }
 
 var envelopeTwo = {
@@ -20,7 +20,7 @@ function putIn(envFirst, envSecond) {
 
 	try {
 	    if (isNaN(envFirst.a) || isNaN(envFirst.b) || isNaN(envSecond.c) || isNaN(envSecond.d) ||
-		    envFirst.a <= 0 || envFirst.b <= 0 || envSecond.c <= 0 || envSecond.d <= 0) {
+	        envFirst.a <= 0 || envFirst.b <= 0 || envSecond.c <= 0 || envSecond.d <= 0) {
 		        throw new SyntaxError('Data invalid');
 		}
 
@@ -28,16 +28,16 @@ function putIn(envFirst, envSecond) {
 		    max1 = envFirst.a;
 		    min1 = envFirst.b;
 		} else {
-			max1 = envFirst.b;
-			min1 = envFirst.a;
+            max1 = envFirst.b;
+		    min1 = envFirst.a;
 		}
 
 		if (envSecond.c > envSecond.d) {
-		    max2 = envSecond.c;
-		    min2 = envSecond.d;
+		   max2 = envSecond.c;
+		   min2 = envSecond.d;
 		} else {
-			max2 = envSecond.d;
-			min2 = envSecond.c;
+		    max2 = envSecond.d;
+		    min2 = envSecond.c;
 		}	
 
 	    return (max1 > max2 && min1 > min2) ? 2 : (max1 < max2 && min1 < min2) ? 1 : 0;
@@ -48,7 +48,7 @@ function putIn(envFirst, envSecond) {
 	    error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
-          }
+        }
 
         alert ('status: ' + error.status + ', reason: ' + error.reason);
 	}
