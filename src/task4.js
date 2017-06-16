@@ -8,7 +8,7 @@ function getPalindrom(num) {
 
 	try {
 	    if (isNaN(num) || num <= 0) {
-			throw new SyntaxError('Data invalid');
+		    throw new SyntaxError('Data invalid');
 		}
 
 	    strOfPalindrom = num.toString();

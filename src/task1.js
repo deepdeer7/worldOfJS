@@ -9,7 +9,7 @@ function drawBoard(length, width, symbol) {
     try {
         if (isNaN(length) || isNaN(width) || symbol === undefined || 
             length <= 0 || width <= 0) {
-            throw new SyntaxError('Data invalid');
+                throw new SyntaxError('Data invalid');
     }
 
         chessBoard = '';

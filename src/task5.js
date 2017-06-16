@@ -3,7 +3,7 @@
 
 var context = {
     min: '100000',
-	max: '100101'
+    max: '100101'
 }
 
 
@@ -15,7 +15,7 @@ function countSimple(context) {
         max = Number(context.max);
 	    min = Number(context.min);
 
-		if (context.min.length != 6 || context.max.length != 6 || min > max) {
+        if (context.min.length != 6 || context.max.length != 6 || min > max) {
 		    throw new SyntaxError('Data invalid');
 		}
 
@@ -68,7 +68,7 @@ function countDifficult(context) {
 		    arr = i.toString().split('');
 
 		    for (j = 0; j < arr.length; j++) {
-		    	num = Number(arr[j])
+		        num = Number(arr[j])
 			    num %2 == 0 ? even += num : odd += num;
 		    }
 

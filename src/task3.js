@@ -4,8 +4,8 @@
 
 var triangles = [
     { vertices: 'ABC', a: 5, b: 6, c: 9 }, 
-	{ vertices: 'DEF', a: 13, b: 14, c: 15 }, 
-	{ vertices: 'XYZ', a: 3, b: 4, c: 5}   
+    { vertices: 'DEF', a: 13, b: 14, c: 15 }, 
+    { vertices: 'XYZ', a: 3, b: 4, c: 5}   
 ];
 
 
@@ -27,7 +27,7 @@ function getSquare(triangles) {
 
 		    if (isNaN(a) || a <= 0 || isNaN(b) || b <= 0 || isNaN(c) || c <= 0 ||
 		    	name.length != 3 || typeof name !== 'string') {
-			    throw new SyntaxError('Data invalid');
+			        throw new SyntaxError('Data invalid');
 		    }
 		
 		    p = (a + b + c) / 2;
@@ -38,7 +38,7 @@ function getSquare(triangles) {
 
 
 		for (key in objOfTriangles) {
-			nameOfTrinagles.unshift(objOfTriangles[key])
+		    nameOfTrinagles.unshift(objOfTriangles[key])
 		}
 
 		return nameOfTrinagles;
