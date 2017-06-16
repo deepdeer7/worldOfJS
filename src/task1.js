@@ -1,54 +1,39 @@
 
 "use strict"
 
-function drawBoard(len, wid, sym) {
+function drawBoard(length, width, symbol) {
+    var i, j,
+    chessBoard,
+    error;  
 
-  try {
-    if (isNaN(len) || isNaN(wid) || sym === undefined) {
-      throw new SyntaxError('Data invalid');
+    try {
+        if (isNaN(length) || isNaN(width) || symbol === undefined || 
+            length <= 0 || width <= 0) {
+            throw new SyntaxError('Data invalid');
     }
 
-    var str = '';
+        chessBoard = '';
 
-      for ( var i = 1; i <= wid; i++) {
-
-        for ( var j = 1; j < len*2; j++ ) {
-          str += ( i % 2 == j % 2 ) ? sym : ' ';
+        for (i = 1; i <= width; i++) {
+            for (j = 1; j < length * 2; j++) {
+                chessBoard += (i % 2 === j % 2 ) ? symbol : ' ';
+            }
+            chessBoard += '\n';
         }
-      str += '\n'
-        }
 
-   return str;
+        return chessBoard;
 
     } catch(e) {
 
-    var error = {
+        error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
           }
 
-    alert ('status: ' + error.status + ', reason: ' + error.reason);
-
-  }
+        alert ('status: ' + error.status + ', reason: ' + error.reason);
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

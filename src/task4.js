@@ -1,48 +1,47 @@
 "use strict"
 
-function getPalindrom(n) {
+function getPalindrom(num) {
+    var palindroms = [],
+    strOfPalindrom,
+    i, j, len,  
+    testOfPalindrom, error;
 
 	try {
-		var arr = [];
-
-		if ( isNaN(n) ) {
+	    if (isNaN(num) || num <= 0) {
 			throw new SyntaxError('Data invalid');
 		}
 
-	    var str = n.toString();
+	    strOfPalindrom = num.toString();
 
-		 for ( var j = 0; j < str.length; j++) {
-	    	var len = str.length;
+		for (i = 0; i < strOfPalindrom.length; i++) {
+	        len = strOfPalindrom.length;
 
-		    for ( var i = j; i < str.length; i++) {
-			
-			   if ( len - i > 2) {
-			     var newStr = str.slice(i, len--);
-
-				  if ( newStr == newStr.split('').reverse().join('') ) {
-				  arr.push(newStr)
-			      }
+		    for (j = i; j < strOfPalindrom.length; j++) {
+			    testOfPalindrom = strOfPalindrom.slice(i, len--);
+			    if (strOfPalindrom.length - j > 1) {
+				    if (testOfPalindrom === testOfPalindrom.split('').reverse().join('')) {
+				        palindroms.push(testOfPalindrom)
+			        }
 			    }
 	          
 		    }
 
-	     }
+	    }
 
-	return Math.max.apply(null, arr);
+	    return Math.max.apply(null, palindroms);
 
 	} catch(e) {
 		
-		var error = {
+        error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
           }
 
-      alert ('status: ' + error.status + ', reason: ' + error.reason);
-
+        alert ('status: ' + error.status + ', reason: ' + error.reason);
+	
 	}
 
 }
-
 
 
 

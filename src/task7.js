@@ -3,91 +3,79 @@
 
 var contextTwo = {
   length: 5
-
 }
-
 
 
 function countFib(context) {
+    var a, b, c,
+    result = [], i,
+    error;
 
-  try {
+    try {
+        a = 1;
+        b = 1;
 
-    var a = 1;
-    var b = 1;
-    var c;
-    var arr = [];
-
-    if ( context.min  &&  context.max  ) {
-
-        if ( isNaN(context.min) || isNaN(context.max) || context.max < context.min || 
-          context.max <= 0 || context.min <= 0  ) {
-          throw new SyntaxError('Data invalid');
-        }
-
+        if (context.min && context.max ) {
+            if (isNaN(context.min) || isNaN(context.max) || context.max < context.min || 
+            context.max <= 0 || context.min <= 0  ) {
+                throw new SyntaxError('Data invalid');
+           }
     
-        if (context.min == 1) {
-        arr.push(a);
-        arr.push(b);
-        }
+            if (context.min === 1) {
+                result.push(a);
+                result.push(b);
+            }
         
-      for (var i = 3; ; i++) {
+            for (i = 3; ; i++) {
+                c = a + b;
+                a = b;
+                b = c;
 
-         c = a + b;
-         a = b;
-         b = c;
+                if (c > context.max) break;
 
-         if ( c > context.max) break;
+                if (c >= context.min) {
+                    result.push(c)
+                }
+            }
 
-         if (c >= context.min) {
-         arr.push(c)
-         }
-      }
-
-  return arr;
+            return result;
    
-  } else if (  context.length || context.length == 0  ) {
+        } else if (context.length || context.length == 0) {
+            if (isNaN(context.length) || context.length <= 0) {
+                throw new SyntaxError('Data invalid');
+            }
 
-      if ( isNaN(context.length) || context.length <= 0 ) {
-        throw new SyntaxError('Data invalid');
-      }
+            if (context.length === 1) {
+                result.push(a);
+                result.push(b);
+            }
+   
+            for (i = 3; ; i++) {
+                c = a + b;
+                a = b;
+                b = c;
 
-        arr.push(a);
+                   if (c.toString().length === context.length) {
+                       result.push(c)
+                   } 
 
-      if ( context.length == 1 ) return arr;
+                  if (c.toString().length > context.length) {
+                      break;
+                  }
+            }
 
-      arr.push(b);
+            return result;
 
-      for ( i = 3; ; i++) {
-        c = a + b;
-        a = b;
-        b = c;
+        }
 
-        if ( arr.length  == context.length) {
-          break;
-        } 
-      
-       arr.push(c);
-
-      }
-
-      return arr;
-
-  }
-
-
-  } catch(e) {
-
-      var error = {
+    } catch(e) {
+        error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
-          }
+        }
 
-    return  'status: ' + error.status + ', reason: ' + error.reason;
+        alert  ('status: ' + error.status + ', reason: ' + error.reason);
 
-  }
-
+    }
  
 }
-
-
-
