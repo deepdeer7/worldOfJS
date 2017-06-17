@@ -13,7 +13,7 @@ function getPalindrom(num) {
 
 	    strOfPalindrom = num.toString();
 
-		for (i = 0; i < strOfPalindrom.length; i++) {
+        for (i = 0; i < strOfPalindrom.length; i++) {
             len = strOfPalindrom.length;
 
 		    for (j = i; j < strOfPalindrom.length; j++) {
@@ -42,27 +42,3 @@ function getPalindrom(num) {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,3 @@
-
-
 "use strict"
 
 function getRow(n, m) {
@@ -31,29 +29,3 @@ function getRow(n, m) {
   }
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

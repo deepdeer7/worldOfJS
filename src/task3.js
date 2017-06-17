@@ -1,5 +1,3 @@
-
-
 "use strict"
 
 var triangles = [
@@ -55,28 +53,3 @@ function getSquare(triangles) {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

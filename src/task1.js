@@ -1,4 +1,3 @@
-
 "use strict"
 
 function drawBoard(length, width, symbol) {
@@ -34,13 +33,3 @@ function drawBoard(length, width, symbol) {
     }
 
 }
-
-
-
-
-
-
-
-
-
-

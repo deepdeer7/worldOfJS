@@ -1,22 +1,20 @@
 "use strict"
 
-
 var context = {
     min: '100000',
     max: '100101'
 }
 
-
 function countSimple(context) {
     var max, min, count,
     i, arr, error;
 
-    try {
-        max = Number(context.max);
+  	try {
+  	    max = Number(context.max);
 	    min = Number(context.min);
 
         if (context.min.length != 6 || context.max.length != 6 || min > max) {
-		    throw new SyntaxError('Data invalid');
+            throw new SyntaxError('Data invalid');
 		}
 
 		count = 0;
@@ -28,9 +26,9 @@ function countSimple(context) {
 		    	Number(arr[3]) + Number(arr[4]) + Number(arr[5])) {
 		        count++;
 		    }
-	    }
+        }
 
-	    return count;
+        return count;
 
 	} catch(e) {
 
@@ -73,7 +71,7 @@ function countDifficult(context) {
 		    }
 
 		    if (even === odd) {
-			    count++;
+                count++;
 		    }
 		 
         }
@@ -93,34 +91,7 @@ function countDifficult(context) {
 
 }
 
-
 function compareFun(simple, difficult) {
 	return (simple > difficult) ? 'simple: ' + simple :
 	'difficult: ' + difficult;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

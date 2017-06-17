@@ -1,10 +1,8 @@
-
 "use strict";
 
 var contextTwo = {
     length: 5
 }
-
 
 function countFib(context) {
     var a, b, c,
@@ -55,13 +53,13 @@ function countFib(context) {
                 a = b;
                 b = c;
 
-                   if (c.toString().length === context.length) {
-                       result.push(c)
-                   } 
+                if (c.toString().length === context.length) {
+                    result.push(c)
+                } 
 
-                  if (c.toString().length > context.length) {
-                      break;
-                  }
+                if (c.toString().length > context.length) {
+                    break;
+                }
             }
 
             return result;
