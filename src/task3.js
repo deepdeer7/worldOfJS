@@ -23,8 +23,8 @@ function getSquare(triangles) {
             c = trinagle.c;
             name = trinagle.vertices;
 
-            if (isNaN(a) || a <= 0 || isNaN(b) || b <= 0 || isNaN(c) || c <= 0 ||
-                name.length != 3 || typeof name !== 'string') {
+            if (typeof a !== 'number' || a <= 0 || typeof b !== 'number' || b <= 0 ||
+             typeof c !== 'number' || c <= 0 || name.length != 3 || typeof name !== 'string') {
                     throw new SyntaxError('Data invalid');
             }
 

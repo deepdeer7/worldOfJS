@@ -7,7 +7,7 @@ function getPalindrom(num) {
     testOfPalindrom, error;
 
     try {
-        if (isNaN(num) || num <= 0) {
+        if (typeof num !== 'number' || num <= 0) {
             throw new SyntaxError('Data invalid');
         }
 

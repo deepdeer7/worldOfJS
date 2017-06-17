@@ -6,8 +6,8 @@ function drawBoard(length, width, symbol) {
     error;  
 
     try {
-        if (isNaN(length) || isNaN(width) || symbol === undefined || 
-            length <= 0 || width <= 0) {
+        if (typeof length !== 'number' || typeof width !== 'number' || 
+            symbol === undefined || length <= 0 || width <= 0) {
                 throw new SyntaxError('Data invalid');
     }
 

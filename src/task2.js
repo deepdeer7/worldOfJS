@@ -1,13 +1,13 @@
 "use strict"
 
 var envelopeOne = {
-    a: 9.4, 
-    c: 6
+    a: 9, 
+    b: 6
 }
 
 var envelopeTwo = {
-    c: 1,
-    d: 4
+    c: 10,
+    d: 40
 }
 
 function putIn(envFirst, envSecond) {
@@ -16,7 +16,8 @@ function putIn(envFirst, envSecond) {
     error;
 
     try {
-        if (isNaN(envFirst.a) || isNaN(envFirst.b) || isNaN(envSecond.c) || isNaN(envSecond.d) ||
+        if (typeof envFirst.a !== 'number' || typeof envFirst.b !== 'number' || 
+            typeof envSecond.c !== 'number' || typeof envSecond.d !== 'number' || 
             envFirst.a <= 0 || envFirst.b <= 0 || envSecond.c <= 0 || envSecond.d <= 0) {
                 throw new SyntaxError('Data invalid');
         }
@@ -29,12 +30,12 @@ function putIn(envFirst, envSecond) {
             min1 = envFirst.a;
         }
 
-        if (envFirst.c > envFirst.d) {
-            max2 = envFirst.c;
-            min2 = envFirst.d;
+        if (envSecond.c > envSecond.d) {
+            max2 = envSecond.c;
+            min2 = envSecond.d;
         } else {
-            max2 = envFirst.d;
-            min2 = envFirst.c;
+            max2 = envSecond.d;
+            min2 = envSecond.c;
         }    
 
         return (max1 > max2 && min1 > min2) ? 2 : (max1 < max2 && min1 < min2) ? 1 : 0;
