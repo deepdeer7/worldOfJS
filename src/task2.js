@@ -20,14 +20,15 @@ function putIn(envFirst, envSecond) {
 	        envFirst.a <= 0 || envFirst.b <= 0 || envSecond.c <= 0 || envSecond.d <= 0) {
 		        throw new SyntaxError('Data invalid');
 		}
-
-        if (envFirst.a > envFirst.b) {
-		    max1 = envFirst.a;
-		    min1 = envFirst.b;
+        
+        if ( envFirst.a > envFirst.b) {
+            max1 = envFirst.a;
+        	max2 = envFirst.b;
         } else {
             max1 = envFirst.b;
-		    min1 = envFirst.a;
-		}
+            min1 = envFirst.a;
+        }
+
 
        if (envSecond.c > envSecond.d) {
 		   max2 = envSecond.c;
