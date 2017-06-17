@@ -23,19 +23,13 @@ function putIn(envFirst, envSecond) {
         
         if (envFirst.a > envFirst.b) {
             max1 = envFirst.a;
-        	max2 = envFirst.b;
+            max2 = envFirst.b;
         } else {
             max1 = envFirst.b;
             min1 = envFirst.a;
         }
 
-        if (envFirst.a > envFirst.b) {
-            max1 = envFirst.a;
-        	max2 = envFirst.b;
-        } else {
-            max1 = envFirst.b;
-            min1 = envFirst.a;
-        }
+
 
 
        if (envSecond.c > envSecond.d) {
