@@ -15,34 +15,34 @@ function getSquare(triangles) {
     nameOfTrinagles = [],
     key, error;
 
-	try {
-	    for (i = 0; i < triangles.length; i++) {
-		    trinagle = triangles[i];
-		    a = trinagle.a;
-		    b = trinagle.b;
-		    c = trinagle.c;
-		    name = trinagle.vertices;
+    try {
+        for (i = 0; i < triangles.length; i++) {
+            trinagle = triangles[i];
+            a = trinagle.a;
+            b = trinagle.b;
+            c = trinagle.c;
+            name = trinagle.vertices;
 
-		    if (isNaN(a) || a <= 0 || isNaN(b) || b <= 0 || isNaN(c) || c <= 0 ||
-		    	name.length != 3 || typeof name !== 'string') {
-			        throw new SyntaxError('Data invalid');
-		    }
-		
-		    p = (a + b + c) / 2;
+            if (isNaN(a) || a <= 0 || isNaN(b) || b <= 0 || isNaN(c) || c <= 0 ||
+                name.length != 3 || typeof name !== 'string') {
+                    throw new SyntaxError('Data invalid');
+            }
 
-		    square = Math.round( Math.sqrt( p * (p - a) * (p - b) * (p - c) ) );
-		    objOfTriangles[square] = name;
-	    };
+            p = (a + b + c) / 2;
+
+            square = Math.round( Math.sqrt( p * (p - a) * (p - b) * (p - c) ) );
+            objOfTriangles[square] = name;
+        };
 
 
-		for (key in objOfTriangles) {
-		    nameOfTrinagles.unshift(objOfTriangles[key])
-		}
+        for (key in objOfTriangles) {
+            nameOfTrinagles.unshift(objOfTriangles[key])
+        }
 
-		return nameOfTrinagles;
+        return nameOfTrinagles;
 
-	} catch(e) {
-		
+    } catch(e) {
+        
         error = {
             status: 'failed',
             reason: 'Enter valid data(numbers/text)'
@@ -50,6 +50,6 @@ function getSquare(triangles) {
 
         alert  ('status: ' + error.status + ', reason: ' + error.reason);
 
-	}
-	
+    }
+    
 }
