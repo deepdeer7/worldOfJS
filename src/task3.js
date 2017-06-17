@@ -1,4 +1,4 @@
-"use strict"
+'use strict';
 
 var triangles = [
     { vertices: 'ABC', a: 5, b: 6, c: 9 }, 

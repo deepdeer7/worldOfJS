@@ -1,4 +1,4 @@
-"use strict"
+'use strict';
 
 function getPalindrom(num) {
     var palindroms = [],

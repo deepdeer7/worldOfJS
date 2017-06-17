@@ -1,8 +1,8 @@
-"use strict"
+'use strict';
 
 var context = {
-    min: '100000',
-    max: '100101'
+    min: '123456',
+    max: '234567'
 }
 
 function countSimple(context) {

@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var contextTwo = {
     length: 5
@@ -14,7 +14,7 @@ function countFib(context) {
         b = 1;
 
         if (context.min && context.max ) {
-            if (isNaN(context.min) || isNaN(context.max) || context.max < context.min || 
+            if (typeof context.min !== 'number' || typeof context.max !== 'number' || context.max < context.min || 
             context.max <= 0 || context.min <= 0  ) {
                 throw new SyntaxError('Data invalid');
            }
@@ -39,7 +39,7 @@ function countFib(context) {
             return result;
    
         } else if (context.length || context.length == 0) {
-            if (isNaN(context.length) || context.length <= 0) {
+            if (typeof context.length != 'number' || context.length <= 0) {
                 throw new SyntaxError('Data invalid');
             }
 
