@@ -1,7 +1,7 @@
 'use strict';
 
 var context = {
-    min: '123456',
+    min: '200000',
     max: '234567'
 }
 
@@ -32,13 +32,12 @@ function countSimple(context) {
 
     } catch(e) {
 
-        error = {
+        let error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
-        };
+        }
 
-        alert ('status: ' + error.status + ', reason: ' + error.reason);
-
+        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
 
 }
@@ -48,7 +47,7 @@ function countDifficult(context) {
     var max, min,
     count, i, j,
     even, odd,  
-    num, arr, error;
+    num, arr;
 
     try {
         max = Number(context.max);
