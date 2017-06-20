@@ -2,14 +2,13 @@
 
 function drawBoard(length, width, symbol) {
     var i, j,
-    chessBoard,
-    error;  
+    chessBoard;  
 
     try {
         if (typeof length !== 'number' || typeof width !== 'number' || 
             symbol === undefined || length <= 0 || width <= 0) {
                 throw new SyntaxError('Data invalid');
-    }
+        }
 
         chessBoard = '';
 
@@ -24,12 +23,12 @@ function drawBoard(length, width, symbol) {
 
     } catch(e) {
 
-        error = {
+        let error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
           }
 
-        alert ('status: ' + error.status + ', reason: ' + error.reason);
+        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
 
 }

@@ -7,7 +7,7 @@ var context = {
 
 function countSimple(context) {
     var max, min, count,
-    i, arr, error;
+    i, arr;
 
     try {
         max = Number(context.max);
@@ -79,14 +79,13 @@ function countDifficult(context) {
         return count;
 
     } catch(e) {
-    
-        error = {
+
+        let error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
-          }
+        }
 
-        alert ('status: ' + error.status + ', reason: ' + error.reason);
-
+        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
 
 }

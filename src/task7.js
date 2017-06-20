@@ -6,8 +6,7 @@ var contextTwo = {
 
 function countFib(context) {
     var a, b, c,
-    result = [], i,
-    error;
+    result = [], i;
 
     try {
         a = 1;
@@ -67,13 +66,13 @@ function countFib(context) {
         }
 
     } catch(e) {
-        error = {
+
+        let error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
         }
 
-        alert  ('status: ' + error.status + ', reason: ' + error.reason);
-
+        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
  
 }

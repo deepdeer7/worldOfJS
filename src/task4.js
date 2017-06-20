@@ -4,7 +4,7 @@ function getPalindrom(num) {
     var palindroms = [],
     strOfPalindrom,
     i, j, len,  
-    testOfPalindrom, error;
+    testOfPalindrom;
 
     try {
         if (typeof num !== 'number' || num <= 0) {
@@ -31,14 +31,13 @@ function getPalindrom(num) {
         return Math.max.apply(null, palindroms);
 
     } catch(e) {
-        
-        error = {
+
+        let error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
-          }
+        }
 
-        alert ('status: ' + error.status + ', reason: ' + error.reason);
-    
+        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
 
 }

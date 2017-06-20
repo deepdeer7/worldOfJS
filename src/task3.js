@@ -13,7 +13,7 @@ function getSquare(triangles) {
     name, p,
     square, 
     nameOfTrinagles = [],
-    key, error;
+    key;
 
     try {
         for (i = 0; i < triangles.length; i++) {
@@ -24,13 +24,13 @@ function getSquare(triangles) {
             name = trinagle.vertices;
 
             if (typeof a !== 'number' || a <= 0 || typeof b !== 'number' || b <= 0 ||
-             typeof c !== 'number' || c <= 0 || name.length != 3 || typeof name !== 'string') {
+                typeof c !== 'number' || c <= 0 || name.length != 3 || typeof name !== 'string') {
                     throw new SyntaxError('Data invalid');
             }
 
             p = (a + b + c) / 2;
 
-            square = Math.round( Math.sqrt( p * (p - a) * (p - b) * (p - c) ) );
+            square = Math.round(Math.sqrt( p * (p - a) * (p - b) * (p - c) ));
             objOfTriangles[square] = name;
         };
 
@@ -42,14 +42,13 @@ function getSquare(triangles) {
         return nameOfTrinagles;
 
     } catch(e) {
-        
-        error = {
+
+        let error = {
             status: 'failed',
-            reason: 'Enter valid data(numbers/text)'
+            reason: 'Enter valid data(numbers)'
         }
 
-        alert  ('status: ' + error.status + ', reason: ' + error.reason);
-
+        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
     
 }

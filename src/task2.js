@@ -12,8 +12,7 @@ var envelopeTwo = {
 
 function putIn(envFirst, envSecond) {
     var max1, min1,
-    max2, min2,
-    error;
+    max2, min2;
 
     try {
         if (typeof envFirst.a !== 'number' || typeof envFirst.b !== 'number' || 
@@ -41,14 +40,14 @@ function putIn(envFirst, envSecond) {
         return (max1 > max2 && min1 > min2) ? 2 : (max1 < max2 && min1 < min2) ? 1 : 0;
 
 
-} catch(e) {
+    } catch(e) {
 
-        error = {
+        let error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
-          }
+        }
 
-        alert ('status: ' + error.status + ', reason: ' + error.reason);
+        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
 
 }

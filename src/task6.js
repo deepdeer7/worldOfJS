@@ -1,8 +1,7 @@
 'use strict';
 
 function getRow(n, m) {
-    var arrOfNumbers = [],
-    i, error;
+    var arrOfNumbers = [], i;
 
     try {
         if (typeof n !== 'number' || typeof m !== 'number' || n <= 0 || m <= 0) {
@@ -19,13 +18,13 @@ function getRow(n, m) {
         return arrOfNumbers.join(',');
 
     } catch(e) {
-        
-        error = {
+
+        let error = {
             status: 'failed',
             reason: 'Enter valid data(numbers)'
         }
 
-        alert ('status: ' + error.status + ', reason: ' + error.reason);
+        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
   
 }
