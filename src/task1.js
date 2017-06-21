@@ -30,5 +30,4 @@ function drawBoard(length, width, symbol) {
 
         console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
-
 }

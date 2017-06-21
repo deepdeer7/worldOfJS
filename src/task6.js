@@ -25,5 +25,4 @@ function getRow(n, m) {
 
         console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
-  
 }

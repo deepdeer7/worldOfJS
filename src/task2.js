@@ -39,7 +39,6 @@ function putIn(envFirst, envSecond) {
 
         return (max1 > max2 && min1 > min2) ? 2 : (max1 < max2 && min1 < min2) ? 1 : 0;
 
-
     } catch(e) {
 
         let error = {
@@ -49,5 +48,4 @@ function putIn(envFirst, envSecond) {
 
         console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
-
 }

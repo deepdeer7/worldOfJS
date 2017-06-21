@@ -31,7 +31,6 @@ function countFib(context) {
 
         console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
- 
 }
 
 function countByMinMax(min, max) {
@@ -61,10 +60,8 @@ function countByMinMax(min, max) {
 }
 
 function countByLength(length) {
-    var a, b, c,
-    result = [], i;
-
-    a = 1, b = 1;
+    var a = 1, b = 1, 
+    c, result = [], i;
 
     if (length === 1) {
         result.push(a);

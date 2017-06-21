@@ -18,14 +18,13 @@ function getPalindrom(num) {
 
             for (j = i; j < strOfPalindrom.length; j++) {
                 testOfPalindrom = strOfPalindrom.slice(i, len--);
+
                 if (strOfPalindrom.length - j > 1) {
                     if (testOfPalindrom === testOfPalindrom.split('').reverse().join('')) {
                         palindroms.push(testOfPalindrom)
                     }
                 }
-              
             }
-
         }
 
         return Math.max.apply(null, palindroms);
@@ -39,5 +38,4 @@ function getPalindrom(num) {
 
         console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
-
 }

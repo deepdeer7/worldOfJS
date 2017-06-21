@@ -6,7 +6,6 @@ var triangles = [
     { vertices: 'XYZ', a: 3, b: 4, c: 5 }   
 ];
 
-
 function getSquare(triangles) {
     var objOfTriangles  = {},
     i, trinagle, a, b, c,
@@ -34,7 +33,6 @@ function getSquare(triangles) {
             objOfTriangles[square] = name;
         };
 
-
         for (key in objOfTriangles) {
             nameOfTrinagles.unshift(objOfTriangles[key])
         }
@@ -49,6 +47,5 @@ function getSquare(triangles) {
         }
 
         console.log(`status: ${error.status}, reason: ${error.reason}`);
-    }
-    
+    }  
 }

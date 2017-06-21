@@ -39,7 +39,6 @@ function countSimple(context) {
 
         console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
-
 }
 
 
@@ -72,7 +71,6 @@ function countDifficult(context) {
             if (even === odd) {
                 count++;
             }
-         
         }
 
         return count;
@@ -86,7 +84,6 @@ function countDifficult(context) {
 
         console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
-
 }
 
 function compareFun(simple, difficult) {
