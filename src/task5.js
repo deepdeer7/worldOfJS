@@ -90,6 +90,5 @@ function countDifficult(context) {
 }
 
 function compareFun(simple, difficult) {
-    return (simple > difficult) ? 'simple: ' + simple :
-    'difficult: ' + difficult;
+    return (simple > difficult) ? `simple:${simple}` : `difficult:${difficult}`;
 }

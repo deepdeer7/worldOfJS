@@ -1,4 +1,3 @@
-'use strict';
 
 function getRow(n, m) {
     var arrOfNumbers = [], i;
@@ -8,7 +7,7 @@ function getRow(n, m) {
             throw new SyntaxError('Data invalid');
         }
 
-        for (i = 1; ; i++) {
+        for (i = 1; i <= m + n ; i++) {
             if (i*i > m ) {
                 if (arrOfNumbers.length === n) break;
                 arrOfNumbers.push(i);

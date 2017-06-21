@@ -1,68 +1,25 @@
 'use strict';
 
 var contextTwo = {
-    length: 5
+    length: 2
 }
 
 function countFib(context) {
-    var a, b, c,
-    result = [], i;
-
-    try {
-        a = 1;
-        b = 1;
-
-        if (context.min && context.max ) {
+   try {
+        if (context.min && context.max) {
             if (typeof context.min !== 'number' || typeof context.max !== 'number' || context.max < context.min || 
             context.max <= 0 || context.min <= 0  ) {
                 throw new SyntaxError('Data invalid');
-           }
-    
-            if (context.min === 1) {
-                result.push(a);
-                result.push(b);
-            }
+           } 
+
+            return countByMinMax(context.min, context.max)
         
-            for (i = 3; ; i++) {
-                c = a + b;
-                a = b;
-                b = c;
-
-                if (c > context.max) break;
-
-                if (c >= context.min) {
-                    result.push(c)
-                }
-            }
-
-            return result;
-   
         } else if (context.length || context.length == 0) {
             if (typeof context.length != 'number' || context.length <= 0) {
                 throw new SyntaxError('Data invalid');
-            }
+            } 
 
-            if (context.length === 1) {
-                result.push(a);
-                result.push(b);
-            }
-   
-            for (i = 3; ; i++) {
-                c = a + b;
-                a = b;
-                b = c;
-
-                if (c.toString().length === context.length) {
-                    result.push(c)
-                } 
-
-                if (c.toString().length > context.length) {
-                    break;
-                }
-            }
-
-            return result;
-
+            return countByLength(context.length);
         }
 
     } catch(e) {
@@ -75,4 +32,59 @@ function countFib(context) {
         console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
  
+}
+
+function countByMinMax(min, max) {
+    var a = 1, b = 1, c,
+    result = [], i;
+
+    if (min === 1) {
+        result.push(a);
+        result.push(b);
+    }
+        
+    for (i = 3; i < max; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+
+        if (c > max) {
+            break;    
+        } 
+
+        if (c >= min) {
+            result.push(c)
+        }
+    }
+
+    return result;
+}
+
+function countByLength(length) {
+    var a, b, c,
+    result = [], i;
+
+    a = 1, b = 1;
+
+    if (length === 1) {
+        result.push(a);
+        result.push(b);
+    }
+   
+    for (i = 3; ; i++) {
+        c = a + b;
+        a = b;
+        b = c;
+
+        if (c.toString().length === length) {
+            result.push(c)
+        } 
+
+        if (c.toString().length > length) {
+            break;
+        }
+    }
+
+    return result;
+
 }
