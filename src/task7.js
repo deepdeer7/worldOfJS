@@ -83,5 +83,4 @@ function countByLength(length) {
     }
 
     return result;
-
 }
