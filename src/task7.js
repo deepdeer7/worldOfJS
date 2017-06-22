@@ -70,7 +70,7 @@ function countByLength(length) {
     }
    
    
-    while (c.toString().length <= length ) {
+    while (c.toString().length <= length) {
     
         c = a + b;
         a = b;
