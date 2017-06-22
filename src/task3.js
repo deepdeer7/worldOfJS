@@ -27,24 +27,24 @@ function getSquare (triangles) {
     nameOfTrinagles = [],
     key;
 
-        for (i = 0; i < triangles.length; i++) {
-            trinagle = triangles[i];
-            a = trinagle.a;
-            b = trinagle.b;
-            c = trinagle.c;
-            name = trinagle.vertices;
+    for (i = 0; i < triangles.length; i++) {
+        trinagle = triangles[i];
+        a = trinagle.a;
+        b = trinagle.b;
+         c = trinagle.c;
+        name = trinagle.vertices;
 
-            p = (a + b + c) / 2;
+        p = (a + b + c) / 2;
 
-            square = Math.round(Math.sqrt(p * (p - a) * (p - b) * (p - c)));
-            objOfTriangles[square] = name;
-        };
+        square = Math.round(Math.sqrt(p * (p - a) * (p - b) * (p - c)));
+        objOfTriangles[square] = name;
+    };
 
-        for (key in objOfTriangles) {
-            nameOfTrinagles.unshift(objOfTriangles[key])
-        }
+    for (key in objOfTriangles) {
+        nameOfTrinagles.unshift(objOfTriangles[key])
+    }
 
-        return nameOfTrinagles;
+    return nameOfTrinagles;
 }
 
 function preValideate (triangles) {

@@ -1,9 +1,5 @@
 'use strict';
 
-var context = {
-    min: '100000',
-    max: '300100'
-}
 
 function task5 (context) {
     var result,
@@ -74,11 +70,11 @@ function countDifficult (context) {
         for (j = 0; j < arr.length; j++) {
             num = Number(arr[j]);
             num %2 == 0 ? even += num : odd += num;
-            }
+        }
 
-            if (even === odd) {
-                count++;
-            }
+        if (even === odd) {
+            count++;
+        }
     }
 
     return count;
