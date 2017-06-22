@@ -1,89 +1,87 @@
 'use strict';
 
 var context = {
-    min: '200000',
-    max: '234567'
+    min: '100000',
+    max: '300100'
 }
 
-function countSimple(context) {
-    var max, min, count,
-    i, arr;
+function task5 (context) {
+    var result,
+    max, min;
 
     try {
-        max = Number(context.max);
-        min = Number(context.min);
+        preValidate(context);
+        countSimple(context);
+        countDifficult(context);
+        result = compareFun(countSimple(context), countDifficult(context));
+    } catch (err) {
+        result = {status: 'failed', reason: err};
+    }
+    return result;
+}
 
-        if (context.min.length != 6 || context.max.length != 6 || min > max) {
-            throw new SyntaxError('Data invalid');
-        }
+function preValidate (context) {
+    var max, min;
 
-        count = 0;
+    max = Number(context.max);
+    min = Number(context.min);
 
-        for (i = min; i <= max; i++) {
-            arr = i.toString().split('');
-
-            if (Number(arr[0]) + Number(arr[1]) + Number(arr[2]) === 
-                Number(arr[3]) + Number(arr[4]) + Number(arr[5])) {
-                count++;
-            }
-        }
-
-        return count;
-
-    } catch(e) {
-
-        let error = {
-            status: 'failed',
-            reason: 'Enter valid data(numbers)'
-        }
-
-        console.log(`status: ${error.status}, reason: ${error.reason}`);
+    if (min > max) {
+        throw 'min is more than max lol';
     }
 }
 
-
-function countDifficult(context) {
+function countSimple (context) {
     var max, min,
-    count, i, j,
-    even, odd,  
-    num, arr;
+    count,
+    arr,
+    i;
 
-    try {
-        max = Number(context.max);
-        min = Number(context.min);
+    max = Number(context.max);
+    min = Number(context.min);
+    count = 0;
 
-        if (context.min.length != 6 || context.max.length != 6 || min > max) {
-            throw new SyntaxError('Data invalid');
+    for (i = min; i <= max; i++) {
+        arr = i.toString().split('');
+
+        if (Number(arr[0]) + Number(arr[1]) + Number(arr[2]) === 
+            Number(arr[3]) + Number(arr[4]) + Number(arr[5])) {
+            count++;
         }
+    }
 
-        count = 0;
+    return count;
+}
+
+function countDifficult (context) {
+    var max, min,
+    even, odd,
+    count, num,
+    i, j,
+    arr;
+
+    max = Number(context.max);
+    min = Number(context.min);
+
+    count = 0;
     
-        for (i = min; i <= max; i++) {
-            even = 0;
-            odd = 0;
-            arr = i.toString().split('');
+    for (i = min; i <= max; i++) {
+        even = 0;
+        odd = 0;
 
-            for (j = 0; j < arr.length; j++) {
-                num = Number(arr[j]);
-                num %2 == 0 ? even += num : odd += num;
+        arr = i.toString().split('');
+
+        for (j = 0; j < arr.length; j++) {
+            num = Number(arr[j]);
+            num %2 == 0 ? even += num : odd += num;
             }
 
             if (even === odd) {
                 count++;
             }
-        }
-
-        return count;
-
-    } catch(e) {
-
-        let error = {
-            status: 'failed',
-            reason: 'Enter valid data(numbers)'
-        }
-
-        console.log(`status: ${error.status}, reason: ${error.reason}`);
     }
+
+    return count;
 }
 
 function compareFun(simple, difficult) {

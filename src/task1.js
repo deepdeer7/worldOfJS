@@ -2,7 +2,8 @@
 
 function drawBoard(length, width, symbol) {
     var i, j,
-    chessBoard;  
+    chessBoard = '',
+    newLength;  
 
     try {
         if (typeof length !== 'number' || typeof width !== 'number' || 
@@ -10,10 +11,9 @@ function drawBoard(length, width, symbol) {
                 throw new SyntaxError('Data invalid');
         }
 
-        chessBoard = '';
-
         for (i = 1; i <= width; i++) {
-            for (j = 1; j < length * 2; j++) {
+            newLength = length * 2;
+            for (j = 1; j < newLength; j++) {
                 chessBoard += (i % 2 === j % 2 ) ? symbol : ' ';
             }
             chessBoard += '\n';

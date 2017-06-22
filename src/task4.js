@@ -1,23 +1,42 @@
 'use strict';
 
-function getPalindrom(num) {
-    var palindroms = [],
-    strOfPalindrom,
-    i, j, len,  
-    testOfPalindrom;
+function task4 (number) {
+    var result;
 
     try {
-        if (typeof num !== 'number' || num <= 0) {
-            throw new SyntaxError('Data invalid');
-        }
+        preValidate(number);
+        result = getPalindrom(number);
+    } catch (err) {
+        result = {status: 'failed', reason: err};
+    }
 
-        strOfPalindrom = num.toString();        
+    return result;
+}
+
+function preValidate (number) {
+    if (typeof number !== 'number') {
+        throw 'enter a number';
+    }
+
+    if (number <= 0) {
+        throw 'enter a positive number';
+    }
+}
+
+function getPalindrom (number) {
+    var palindroms = [],
+    strOfPalindrom,
+    i, j, lengthOfPart,  
+    testOfPalindrom,
+    maxPalindrom;
+
+    strOfPalindrom = number.toString();        
 
         for (i = 0; i < strOfPalindrom.length; i++) {
-            len = strOfPalindrom.length;
+            lengthOfPart = strOfPalindrom.length;
 
             for (j = i; j < strOfPalindrom.length; j++) {
-                testOfPalindrom = strOfPalindrom.slice(i, len--);
+                testOfPalindrom = strOfPalindrom.slice(i, lengthOfPart--);
 
                 if (strOfPalindrom.length - j > 1) {
                     if (testOfPalindrom === testOfPalindrom.split('').reverse().join('')) {
@@ -27,15 +46,6 @@ function getPalindrom(num) {
             }
         }
 
-        return Math.max.apply(null, palindroms);
-
-    } catch(e) {
-
-        let error = {
-            status: 'failed',
-            reason: 'Enter valid data(numbers)'
-        }
-
-        console.log(`status: ${error.status}, reason: ${error.reason}`);
-    }
+        maxPalindrom = Math.max.apply(null, palindroms);
+        return maxPalindrom;
 }

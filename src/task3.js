@@ -1,12 +1,25 @@
 'use strict';
 
 var triangles = [
-    { vertices: 'ABC', a: 5, b: 6, c: 9 }, 
+    { vertices: 'ABC', a: 's', b: 6, c: 9 }, 
     { vertices: 'DEF', a: 13, b: 14, c: 15 }, 
     { vertices: 'XYZ', a: 3, b: 4, c: 5 }   
 ];
 
-function getSquare(triangles) {
+function task3 (triangles) {
+    var result;
+
+    try {
+        preValideate(triangles);
+        result = getSquare(triangles);
+    } catch (err) {
+        result = {status: 'failed', reason: err};
+    }
+
+    return result;
+}
+
+function getSquare (triangles) {
     var objOfTriangles  = {},
     i, trinagle, a, b, c,
     name, p,
@@ -14,7 +27,6 @@ function getSquare(triangles) {
     nameOfTrinagles = [],
     key;
 
-    try {
         for (i = 0; i < triangles.length; i++) {
             trinagle = triangles[i];
             a = trinagle.a;
@@ -22,14 +34,9 @@ function getSquare(triangles) {
             c = trinagle.c;
             name = trinagle.vertices;
 
-            if (typeof a !== 'number' || a <= 0 || typeof b !== 'number' || b <= 0 ||
-                typeof c !== 'number' || c <= 0 || name.length != 3 || typeof name !== 'string') {
-                    throw new SyntaxError('Data invalid');
-            }
-
             p = (a + b + c) / 2;
 
-            square = Math.round(Math.sqrt( p * (p - a) * (p - b) * (p - c) ));
+            square = Math.round(Math.sqrt(p * (p - a) * (p - b) * (p - c)));
             objOfTriangles[square] = name;
         };
 
@@ -38,14 +45,32 @@ function getSquare(triangles) {
         }
 
         return nameOfTrinagles;
+}
 
-    } catch(e) {
+function preValideate (triangles) {
+    var trinagle,
+    a, b, c,
+    name,
+    i;
 
-        let error = {
-            status: 'failed',
-            reason: 'Enter valid data(numbers)'
+    for (i = 0; i < triangles.length; i++) {
+        trinagle = triangles[i];
+        a = trinagle.a;
+        b = trinagle.b;
+        c = trinagle.c;
+        name = trinagle.vertices;
+
+        if (typeof a !== 'number' || typeof b !== 'number'
+            || typeof c !== 'number') {
+            throw 'enter numbers pleeze';
         }
 
-        console.log(`status: ${error.status}, reason: ${error.reason}`);
-    }  
+        if (a <= 0 || b <= 0 || c <= 0) {
+            throw 'enter positive numbers';    
+        }
+
+        if (typeof name !== 'string' || name.length != 3) {
+            throw 'name must have 3 symbols'
+        }
+    }
 }

@@ -1,3 +1,4 @@
+'use strict';
 
 function getRow(n, m) {
     var arrOfNumbers = [], i;

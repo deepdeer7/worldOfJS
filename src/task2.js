@@ -1,15 +1,5 @@
 'use strict';
 
-var envelopeOne = {
-    a: 9, 
-    b: 6
-}
-
-var envelopeTwo = {
-    c: 10,
-    d: 40
-}
-
 function putIn(envFirst, envSecond) {
     var max1, min1,
     max2, min2;
