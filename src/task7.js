@@ -1,7 +1,8 @@
 'use strict';
 
 var contextTwo = {
-    length: 2
+    min: 1,
+    max: 300
 }
 
 function countFib(context) {
@@ -65,14 +66,14 @@ function countByMinMax(min, max) {
 
 function countByLength(length) {
     var a = 1, b = 1, 
-    c, numbers = [], i;
+    c = 0, numbers = [], i;
 
     if (length === 1) {
         numbers.push(a);
         numbers.push(b);
     }
    
-    for (i = 3; ; i++) {
+    while (c.toString().length <= length ) {
         c = a + b;
         a = b;
         b = c;
@@ -81,9 +82,6 @@ function countByLength(length) {
             numbers.push(c)
         } 
 
-        if (c.toString().length > length) {
-            break;
-        }
     }
 
     return numbers;
