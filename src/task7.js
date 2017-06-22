@@ -5,22 +5,26 @@ var contextTwo = {
 }
 
 function countFib(context) {
-   try {
+    var result;
+    
+    try {
         if (context.min && context.max) {
             if (typeof context.min !== 'number' || typeof context.max !== 'number' || context.max < context.min || 
             context.max <= 0 || context.min <= 0  ) {
                 throw new SyntaxError('Data invalid');
            } 
 
-            return countByMinMax(context.min, context.max)
+            result = countByMinMax(context.min, context.max)
         
         } else if (context.length || context.length == 0) {
             if (typeof context.length != 'number' || context.length <= 0) {
                 throw new SyntaxError('Data invalid');
             } 
 
-            return countByLength(context.length);
+            result = countByLength(context.length);
         }
+
+        return result;
 
     } catch(e) {
 
