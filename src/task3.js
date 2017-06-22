@@ -1,11 +1,5 @@
 'use strict';
 
-var triangles = [
-    { vertices: 'ABC', a: 's', b: 6, c: 9 }, 
-    { vertices: 'DEF', a: 13, b: 14, c: 15 }, 
-    { vertices: 'XYZ', a: 3, b: 4, c: 5 }   
-];
-
 function task3 (triangles) {
     var result;
 
