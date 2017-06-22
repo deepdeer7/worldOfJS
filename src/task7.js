@@ -5,8 +5,8 @@ var contextTwo = {
 }
 
 function countFib(context) {
-    var result;
-    
+    var listOfNumbers;
+
     try {
         if (context.min && context.max) {
             if (typeof context.min !== 'number' || typeof context.max !== 'number' || context.max < context.min || 
@@ -14,17 +14,17 @@ function countFib(context) {
                 throw new SyntaxError('Data invalid');
            } 
 
-            result = countByMinMax(context.min, context.max)
+            listOfNumbers = countByMinMax(context.min, context.max)
         
         } else if (context.length || context.length == 0) {
             if (typeof context.length != 'number' || context.length <= 0) {
                 throw new SyntaxError('Data invalid');
             } 
 
-            result = countByLength(context.length);
+            listOfNumbers = countByLength(context.length);
         }
 
-        return result;
+        return listOfNumbers;
 
     } catch(e) {
 
@@ -39,11 +39,11 @@ function countFib(context) {
 
 function countByMinMax(min, max) {
     var a = 1, b = 1, c,
-    result = [], i;
+    numbers = [], i;
 
     if (min === 1) {
-        result.push(a);
-        result.push(b);
+        numbers.push(a);
+        numbers.push(b);
     }
         
     for (i = 3; i < max; i++) {
@@ -56,20 +56,20 @@ function countByMinMax(min, max) {
         } 
 
         if (c >= min) {
-            result.push(c)
+            numbers.push(c)
         }
     }
 
-    return result;
+    return numbers;
 }
 
 function countByLength(length) {
     var a = 1, b = 1, 
-    c, result = [], i;
+    c, numbers = [], i;
 
     if (length === 1) {
-        result.push(a);
-        result.push(b);
+        numbers.push(a);
+        numbers.push(b);
     }
    
     for (i = 3; ; i++) {
@@ -78,7 +78,7 @@ function countByLength(length) {
         b = c;
 
         if (c.toString().length === length) {
-            result.push(c)
+            numbers.push(c)
         } 
 
         if (c.toString().length > length) {
@@ -86,5 +86,5 @@ function countByLength(length) {
         }
     }
 
-    return result;
+    return numbers;
 }
