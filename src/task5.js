@@ -1,6 +1,5 @@
 'use strict';
 
-
 function task5 (context) {
     var result,
     max, min;
@@ -58,13 +57,11 @@ function countDifficult (context) {
 
     max = Number(context.max);
     min = Number(context.min);
-
     count = 0;
     
     for (i = min; i <= max; i++) {
         even = 0;
         odd = 0;
-
         arr = i.toString().split('');
 
         for (j = 0; j < arr.length; j++) {

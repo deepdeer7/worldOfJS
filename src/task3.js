@@ -31,7 +31,7 @@ function getSquare (triangles) {
         trinagle = triangles[i];
         a = trinagle.a;
         b = trinagle.b;
-         c = trinagle.c;
+        c = trinagle.c;
         name = trinagle.vertices;
 
         p = (a + b + c) / 2;
