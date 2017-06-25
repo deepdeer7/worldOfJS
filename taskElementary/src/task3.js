@@ -39,7 +39,6 @@ function getReversedNames (triangles) {
     return resultOfReversedNames;
 }
 
-
 function preValideate (triangles) {
     if (typeof triangles !== 'object') {
         throw 'enter the object';

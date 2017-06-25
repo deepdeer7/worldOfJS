@@ -33,7 +33,6 @@ function firstIsSmaller (first, second) {
 function secondIsSmaller (second, first) {
     return first.a > second.c && first.b > second.d ||
         first.a > second.d && first.b > second.c;
-
 }
 
 function preValidate (envelopeFirst, envelopeSecond) {
