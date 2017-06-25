@@ -1,0 +1,22 @@
+@font-face {
+ font-family: XRay;
+ src:url(../fonts/XRay.otf);
+}
+
+.clear {
+    clear: both;
+}
+
+.clock-calendar {
+    float: left;
+    background-color: #D3D3D3;
+    font-size: 2em;
+    color: #FF8C00;
+    font-family: XRay;
+}
+
+.leftButton, 
+.rightButton {
+    padding: 5px;
+    margin-top: 5px;
+}

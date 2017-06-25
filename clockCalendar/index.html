@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <link rel='stylesheet' href='css/style.css'>
+    </head>
+    <body>
+        <div class='clock-calendar'></div>
+        <div class='clear'></div>
+
+        <button class='leftButton'>switch formats</button>
+        <button class='rightButton'>switch calendar and clock</button>
+
+        <script>
+            'use strict';
+
+            let timerId;
+
+            document.querySelector('.leftButton').onclick = function() {
+                let elem = document.querySelector('.clock-calendar');
+
+                if (elem.classList.contains('clock')) {
+                    elem.classList.toggle('long');
+                } else if (elem.classList.contains('calendar')) {
+                    elem.classList.toggle('uaDate');
+                }
+            }
+
+            document.querySelector('.rightButton').onclick = function() {
+                let elem = document.querySelector('.clock-calendar');
+
+                if (elem.classList.contains('clock')) {
+                    swapClockToCalendar(elem);
+
+                    calendarStart();
+                } else if (elem.classList.contains('calendar')) {
+                    swapCalendarToClock(elem);
+                    
+                    clockStart();
+                }
+            }
+
+            function swapClockToCalendar (elem) {
+                elem.classList.remove('clock');
+                elem.classList.add('calendar');    
+            }
+
+            function swapCalendarToClock (elem) {
+                elem.classList.add('clock');
+                elem.classList.remove('calendar');    
+            }
+
+            function createCalendar () {
+                let elem = document.querySelector('.clock-calendar');
+
+                elem.classList.add('calendar');
+                getCalendarDate(elem);
+            }
+
+            function getCalendarDate (elem) {
+                let date = new Date(),
+                    month = date.getMonth() + 1,
+                    day = date.getDate(),
+                    year = date.getFullYear();
+
+                if (month < 10) {
+                    month = `0${month}`;
+                }
+
+                if (day < 10) {
+                    day = `0${day}`;
+                }
+
+                if (elem.classList.contains('uaDate')) {
+                    getCalendarUaDate(elem, day, month, year);
+                } else {
+                    getCalendarEuDate(elem, month, day, year);
+                }
+            }
+
+            function getCalendarUaDate (elem, day, month, year) {
+                elem.innerHTML = `${day}:${month}:${year}`;
+            }
+
+            function getCalendarEuDate (elem, month, day, year) {
+                let shortYear = year % 100;
+                if (shortYear < 10) {
+                    shortYear = `0${year}`;
+                } 
+
+                elem.innerHTML = `${month}/${day}/${shortYear}`;
+            }
+
+            function createClock () {
+                let elem = document.querySelector('.clock-calendar');
+
+                elem.classList.add('clock');
+                getTime(elem); 
+            } 
+
+            function getTime (elem) {
+                let date = new Date(),
+                    hours = date.getHours(),
+                    minutes = date.getMinutes(),
+                    seconds = date.getSeconds();
+
+                if (seconds < 10) {
+                    seconds = `0${seconds}`;
+                } 
+
+                if (hours < 10) {
+                    hours = `0${hours}`;
+                } 
+
+                if (minutes < 10) {
+                    minutes = `0${minutes}`;
+                }
+
+                if (elem.classList.contains('long')) {
+                    getTimeLong(elem, hours, minutes, seconds);
+                } else {
+                    getTimeShort(elem, hours, minutes);
+                }
+            }
+
+            function getTimeLong (elem, hours, minutes, seconds) {
+                elem.innerHTML = `${hours}:${minutes}:${seconds}`;
+            }
+
+            function getTimeShort (elem, hours, minutes) {
+                elem.innerHTML = `${hours}:${minutes}`;
+            }
+
+            function clockStart () {
+                clearTimeout(timerId);
+                  
+                createClock();  
+                timerId = setInterval(createClock, 1000); 
+            }
+
+            function calendarStart () {
+                clearTimeout(timerId);
+
+                createCalendar();
+                timerId = setInterval(createCalendar, 1000);
+            }
+
+            clockStart();
+
+            //hover js
+            document.querySelector('.clock-calendar').onmouseover = function() {
+                this.style.backgroundColor = '#FFEBCD';
+            }
+
+            document.querySelector('.clock-calendar').onmouseout = function() {
+                this.style.backgroundColor = '';
+            }   
+            
+        </script>
+    </body>
+</html>

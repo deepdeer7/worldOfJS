@@ -1,24 +1,23 @@
 'use strict';
 
 // first 
-console.log(drawBoard(10,7,'w'));
+console.log(task1(10,7,'w'));
 
 // second 
-var envelopeOne = {
+let envelopeOne = {
     a: 9, 
     b: 6
 }
 
-var envelopeTwo = {
+let envelopeTwo = {
     c: 10,
     d: 40
 }
 
-console.log(putIn(envelopeOne, envelopeTwo));
-
+console.log(task2(envelopeOne, envelopeTwo));
 
 // third 
-var triangles = [
+let triangles = [
     { vertices: 'ABC', a: 5, b: 6, c: 9 }, 
     { vertices: 'DEF', a: 13, b: 14, c: 15 }, 
     { vertices: 'XYZ', a: 3, b: 4, c: 5 }   
@@ -30,7 +29,7 @@ console.log(task3(triangles));
 console.log(task4(1223454322));
 
 // fifth 
-var context = {
+let context = {
     min: '100000',
     max: '300100'
 }
@@ -38,11 +37,11 @@ var context = {
 console.log(task5(context));
 
 // sixth 
-console.log(getRow(4, 625));
+console.log(task6(4, 625));
 
 // seventh 
-var contextTwo = {
+let contextTwo = {
     length: 3
 }
 
-console.log(countFib(contextTwo));
+console.log(task7(contextTwo));
