@@ -2,8 +2,8 @@
 
 function task5 (context) {
     let result,
-    min = Number(context.min),
-    max = Number(context.max);
+        min = Number(context.min),
+        max = Number(context.max);
 
     try {
         preValidate(context, min, max);
@@ -65,6 +65,6 @@ function countDifficult (min, max) {
     return sumOfLuck;
 }
 
-function compareFunction(simple, difficult) {
+function compareFunction (simple, difficult) {
     return (simple > difficult) ? `simple:${simple}` : `difficult:${difficult}`;
 }
