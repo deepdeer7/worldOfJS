@@ -16,7 +16,7 @@
 
             let timerId;
 
-            document.querySelector('.leftButton').onclick = function() {
+            document.querySelector('.leftButton').onclick = function () {
                 let elem = document.querySelector('.clock-calendar');
 
                 if (elem.classList.contains('clock')) {
@@ -26,7 +26,7 @@
                 }
             }
 
-            document.querySelector('.rightButton').onclick = function() {
+            document.querySelector('.rightButton').onclick = function () {
                 let elem = document.querySelector('.clock-calendar');
 
                 if (elem.classList.contains('clock')) {
@@ -148,11 +148,11 @@
             clockStart();
 
             //hover js
-            document.querySelector('.clock-calendar').onmouseover = function() {
+            document.querySelector('.clock-calendar').onmouseover = function () {
                 this.style.backgroundColor = '#FFEBCD';
             }
 
-            document.querySelector('.clock-calendar').onmouseout = function() {
+            document.querySelector('.clock-calendar').onmouseout = function () {
                 this.style.backgroundColor = '';
             }   
             
