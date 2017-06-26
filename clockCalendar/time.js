@@ -3,19 +3,19 @@
 function Time () {
     let date = new Date(),
 
-    year = normalizeDate(date.getFullYear() % 100),
-    month = normalizeDate(date.getMonth() + 1),
-    day = normalizeDate(date.getDate()),
-    hours = normalizeDate(date.getHours()),
-    minutes = normalizeDate(date.getMinutes()),
-    seconds = normalizeDate(date.getSeconds());
+        year = normalizeDate(date.getFullYear() % 100),
+        month = normalizeDate(date.getMonth() + 1),
+        day = normalizeDate(date.getDate()),
+        hours = normalizeDate(date.getHours()),
+        minutes = normalizeDate(date.getMinutes()),
+        seconds = normalizeDate(date.getSeconds());
 
-    function normalizeDate (parametr) {
-        if (parametr < 10) {
-            parametr = `0${parametr}`;
+    function normalizeDate (parameter) {
+        if (parameter < 10) {
+            parameter = `0${parameter}`;
         }
 
-        return parametr;
+        return parameter;
     }
 
     this.getYear = function () {

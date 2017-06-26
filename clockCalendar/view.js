@@ -77,7 +77,6 @@ function View () {
                 element.innerHTML = currentTime;
                 timeCash = currentTime;
             }
-
         }, 1000);
     };
 
@@ -113,7 +112,6 @@ function View () {
     this.showTimer();
   }.bind(this), false);
 
-
     element.addEventListener('mouseover', function () {
         element.classList.add('color'); 
     });
@@ -122,6 +120,3 @@ function View () {
         element.classList.remove('color');
     });
 }
-
-
-
