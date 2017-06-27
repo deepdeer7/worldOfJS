@@ -41,7 +41,7 @@ console.log(task6(4, 625));
 
 // seventh 
 let contextTwo = {
-    length: 3
+    length: 5
 }
 
 console.log(task7(contextTwo));

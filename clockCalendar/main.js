@@ -1,11 +1,11 @@
 'use strict';
 
-window.addEventListener('DOMContentLoaded', main, false);
+document.addEventListener('DOMContentLoaded', callTime, false);
 
-function main () {
-  let controller = new View();
+function callTime () {
+    let controller = new View();
   
-  controller.showTimer();
+    controller.showTimer();
 }
 
 

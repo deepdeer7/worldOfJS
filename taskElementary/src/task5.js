@@ -15,19 +15,6 @@ function task5 (context) {
     return result;
 }
 
-function preValidate (context, min, max) {
-    if (isNaN(max) || isNaN(min) ||
-        context.min.length !== 6 ||
-        context.max.length !== 6) {
-        
-        throw 'enter string length of 6 numbers';
-    }
-
-    if (min > max) {
-        throw 'min is more than max lol';
-    }
-}
-
 function countSimple (min, max) {
     let sumOfLuck = 0;
 
@@ -67,4 +54,17 @@ function countDifficult (min, max) {
 
 function compareFunction (simple, difficult) {
     return (simple > difficult) ? `simple:${simple}` : `difficult:${difficult}`;
+}
+
+function preValidate (context, min, max) {
+    if (isNaN(max) || isNaN(min) ||
+        context.min.length !== 6 ||
+        context.max.length !== 6) {
+        
+        throw 'enter string length of 6 numbers';
+    }
+
+    if (min > max) {
+        throw 'min is more than max lol';
+    }
 }

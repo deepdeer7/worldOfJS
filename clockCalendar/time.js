@@ -3,7 +3,8 @@
 function Time () {
     let date = new Date(),
 
-        year = normalizeDate(date.getFullYear() % 100),
+        fullYear = normalizeDate(date.getFullYear()),
+        shortYear = normalizeDate(date.getFullYear() % 100),
         month = normalizeDate(date.getMonth() + 1),
         day = normalizeDate(date.getDate()),
         hours = normalizeDate(date.getHours()),
@@ -19,7 +20,11 @@ function Time () {
     }
 
     this.getYear = function () {
-        return year;
+        return fullYear;
+    };
+
+    this.getShortYear = function () {
+        return shortYear;
     };
 
     this.getMonth = function () {

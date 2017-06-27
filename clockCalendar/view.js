@@ -1,10 +1,11 @@
 'use strict';
 
 function View () {
-    let state = 'clock',
-        element = document.querySelector('.clock-calendar'),
+    let element = document.querySelector('.clock-calendar'),
+        state = 'clock',
 
-        year,
+        fullYear,
+        shortYear,
         month,
         day,
         hours,
@@ -14,7 +15,8 @@ function View () {
     function updateTime () {
         let time = new Time();
 
-        year = time.getYear();
+        fullYear = time.getYear();
+        shortYear = time.getShortYear();
         month = time.getMonth();
         day = time.getDay();
         hours = time.getHours();
@@ -43,16 +45,10 @@ function View () {
     }
 
     function getUaCalendar () {
-        return `${day}:${month}:${year}`;
+        return `${day}:${month}:${fullYear}`;
     }
 
     function getEuCalendar () {
-        let shortYear = year % 100;
-
-        if (shortYear < 10) {
-            shortYear = `0${year}`;
-        } 
-
         return `${month}/${day}/${shortYear}`;
     }
 
@@ -83,7 +79,7 @@ function View () {
     element.addEventListener('click', function () {
         toggleState();
 
-       this.showTimer();
+        this.showTimer();
     }.bind(this), false);
 
     function toggleState () {
@@ -100,23 +96,23 @@ function View () {
         return state;    
     }
 
-  element.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
+    element.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
 
-    if (state === 'clock' || state === 'full') {
-        state = 'calendar';
-    } else if (state === 'calendar' || state === 'calendarUa') {
-        state = 'clock';
+        if (state === 'clock' || state === 'full') {
+            state = 'calendar';
+        } else if (state === 'calendar' || state === 'calendarUa') {
+            state = 'clock';
+        }
+
+        this.showTimer();
+    }.bind(this), false);
+
+    function toggleColor () {
+        element.classList.toggle('color');     
     }
 
-    this.showTimer();
-  }.bind(this), false);
+    element.addEventListener('mouseover', toggleColor);
 
-    element.addEventListener('mouseover', function () {
-        element.classList.add('color'); 
-    });
-
-    element.addEventListener('mouseout', function () {
-        element.classList.remove('color');
-    });
+    element.addEventListener('mouseout', toggleColor);
 }
