@@ -76,11 +76,11 @@ function View () {
         }, 1000);
     };
 
-    element.addEventListener('click', function () {
+    element.addEventListener('click', () => {
         toggleState();
 
         this.showTimer();
-    }.bind(this), false);
+    }, false);
 
     function toggleState () {
         if (state === 'clock') {
@@ -96,7 +96,7 @@ function View () {
         return state;    
     }
 
-    element.addEventListener('contextmenu', function (e) {
+    element.addEventListener('contextmenu', (e) => {
         e.preventDefault();
 
         if (state === 'clock' || state === 'full') {
@@ -106,7 +106,7 @@ function View () {
         }
 
         this.showTimer();
-    }.bind(this), false);
+    }, false);
 
     function toggleColor () {
         element.classList.toggle('color');     
