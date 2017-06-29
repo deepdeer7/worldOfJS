@@ -11,6 +11,9 @@
     font-size: 11em;
     color: #000;
     font-family: XRay;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .color {
