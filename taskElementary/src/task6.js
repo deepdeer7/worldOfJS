@@ -13,16 +13,6 @@ function task6 (length, number) {
     return result;
 }
 
-function preValidate (length, number) {
-    if (typeof length !== 'number' || typeof number !== 'number') {
-        throw 'enter numbers';
-    }
-
-    if (length <= 0 || number <= 0) {
-        throw 'enter positive numbers';
-    }
-}
-
 function getRow (length, number) {
     let arrOfNumbers = [],
         stringOfNumbers,
@@ -38,4 +28,14 @@ function getRow (length, number) {
 
     stringOfNumbers = arrOfNumbers.join(',');  
     return stringOfNumbers;
+}
+
+function preValidate (length, number) {
+    if (typeof length !== 'number' || typeof number !== 'number') {
+        throw 'enter numbers';
+    }
+
+    if (length <= 0 || number <= 0) {
+        throw 'enter positive numbers';
+    }
 }

@@ -69,6 +69,7 @@ function View () {
         intervalId = setInterval(function() {
             let currentTime = refresh();
 
+            // update only if time's changed
             if (timeCash !== currentTime) {
                 element.innerHTML = currentTime;
                 timeCash = currentTime;
