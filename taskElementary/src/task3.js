@@ -30,7 +30,7 @@ function getReversedNames (triangles) {
         objOfTriangles[area] = triangle.vertices;
     }
 
-    // object sorts keys by increasing
+    // object sorts keys in ascending order
     for (let key in objOfTriangles) {
         nameOfTrinagles.push(objOfTriangles[key]);
     }
