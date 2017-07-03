@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <script>
+            'use strict';
+            
+            var Pet = (function () {
+                function Pet_ES5M (name) {
+                    this.name = name;
+                }
+
+                function jump () {
+                    return 'jump';
+                }
+
+                function _go () {
+                    jump();
+                    return 'pet can go';
+                }
+
+                function _breathe () {
+                    return 'pet breathe easily';
+                }
+
+                Pet_ES5M.prototype.go = _go;
+                Pet_ES5M.prototype.breathe = _breathe;
+
+                return Pet_ES5M;
+            })();
+
+            function Cat (name) {
+                this.name = name;
+            }
+
+            Cat.prototype = Object.create(Pet.prototype);
+
+            Cat.prototype.meow = function () {
+                return 'meow';
+            }
+
+            var cat = new Cat();
+
+            function Dog (name) {
+                this.name = name;
+            }
+
+            Dog.prototype = Object.create(Pet.prototype);
+
+
+            Dog.prototype.guard = function () {
+                return 'gav-gav';
+            }
+
+            var dog = new Dog('elvis');
+
+            console.log(dog);
+
+
+        </script> 
+    </body>
+</html>

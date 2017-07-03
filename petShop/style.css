@@ -1,0 +1,23 @@
+body, html { width: 100%; height: 100%; }
+
+.column {
+   width: 33%;
+   display: inline-block;
+   vertical-align: top;
+
+}
+
+.PetShop {
+   background-color: #7FFFD4;
+   margin: 20px;
+   padding: 10px;
+   border: 5px solid black;
+   border-radius: 10px;
+}
+
+
+li {
+   list-style-type: none;
+   padding: 1px;
+   font-size: 20px;
+}

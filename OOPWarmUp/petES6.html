@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+    </head>
+    <body>
+        <script>
+            'use strict';
+            
+            class Pet {
+                constructor (name) {
+                    this.name = name;
+                }
+
+                jump () {
+                    return 'jump';
+                }
+
+                go () {
+                    jump();
+                    return 'pet can go';
+                }
+
+                breathe () {
+                    return 'pet breathe easily';
+                }
+            }
+
+            class Cat extends Pet {
+                constructor (name) {
+                    super(name);
+                }
+
+                meow () {
+                    return 'meow';
+                }
+            }
+
+            class Dog extends Pet {
+                constructor (name, age) {
+                    super(name);
+                    this.age = age;
+                }
+
+                guard () {
+                    return `${this.name}guards you`;
+                }
+            }
+
+
+            var dog = new Dog('Pit', 55);
+
+            console.log(dog);
+        </script>
+    </body>
+</html>

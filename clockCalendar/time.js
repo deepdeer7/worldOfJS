@@ -2,7 +2,15 @@
 
 function Time () {
     let date = new Date(),
+        fullYear,
+        shortYear,
+        month,
+        day,
+        hours,
+        minutes,
+        seconds;
 
+    this.start = function() {
         fullYear = normalizeDate(date.getFullYear()),
         shortYear = normalizeDate(date.getFullYear() % 100),
         month = normalizeDate(date.getMonth() + 1),
@@ -10,6 +18,8 @@ function Time () {
         hours = normalizeDate(date.getHours()),
         minutes = normalizeDate(date.getMinutes()),
         seconds = normalizeDate(date.getSeconds());
+    }
+        
 
     function normalizeDate (parameter) {
         if (parameter < 10) {
@@ -19,33 +29,22 @@ function Time () {
         return parameter;
     }
 
-    this.getYear = function () {
-        return fullYear;
-    };
+    this.getUaCalendar = function () {
+        return `${day}:${month}:${fullYear}`;
+    }
 
-    this.getShortYear = function () {
-        return shortYear;
-    };
+    this.getEuCalendar = function () {
+        return `${month}/${day}/${shortYear}`;
+    }
 
-    this.getMonth = function () {
-        return month;
-    };
+    this.getLongTime = function () {
+        return `${hours}:${minutes}:${seconds}`;
+    }
 
-    this.getDay = function () {
-        return day;
-    };
+    this.getShortTime = function () {
+        return `${hours}:${minutes}`;
+    }
 
-    this.getHours = function () {
-        return hours;
-    };
-
-    this.getMinutes = function () {
-        return minutes;
-    };
-
-    this.getSeconds = function () {
-        return seconds;
-    };
 
     return this;
 }

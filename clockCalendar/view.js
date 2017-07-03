@@ -1,63 +1,33 @@
 'use strict';
 
+
 function View () {
     let element = document.querySelector('.clock-calendar'),
-        state = 'clock',
+        state = 'clock';
 
-        fullYear,
-        shortYear,
-        month,
-        day,
-        hours,
-        minutes,
-        seconds;
+    let startTime = () => {
+let time = new Time();
 
-    function updateTime () {
-        let time = new Time();
-
-        fullYear = time.getYear();
-        shortYear = time.getShortYear();
-        month = time.getMonth();
-        day = time.getDay();
-        hours = time.getHours();
-        minutes = time.getMinutes();
-        seconds = time.getSeconds();
-
-        return time;
+    time.start(this.showTimer);
     }
+
+        startTime();
+    
 
     function refresh () {
         let result;
-
-        updateTime();
         
         if (state === 'clock') {
-            result = getShortTime();
+            result = time.getShortTime();
         } else if (state === 'full') {
-            result = getLongTime();
+            result = time.getLongTime();
         } else if (state === 'calendarUa') {
-            result = getUaCalendar();
+            result = time.getUaCalendar();
         } else if (state === 'calendar') {
-            result = getEuCalendar();
+            result = time.getEuCalendar();
         }
 
         return result;
-    }
-
-    function getUaCalendar () {
-        return `${day}:${month}:${fullYear}`;
-    }
-
-    function getEuCalendar () {
-        return `${month}/${day}/${shortYear}`;
-    }
-
-    function getLongTime () {
-        return `${hours}:${minutes}:${seconds}`;
-    }
-
-    function getShortTime () {
-        return `${hours}:${minutes}`;
     }
 
     this.showTimer = function () {
@@ -77,11 +47,6 @@ function View () {
         }, 1000);
     };
 
-    element.addEventListener('click', () => {
-        toggleState();
-
-        this.showTimer();
-    }, false);
 
     function toggleState () {
         if (state === 'clock') {
@@ -96,6 +61,12 @@ function View () {
 
         return state;    
     }
+
+    element.addEventListener('click', () => {
+        toggleState();
+
+        this.showTimer();
+    }, false);
 
     element.addEventListener('contextmenu', (e) => {
         e.preventDefault();
