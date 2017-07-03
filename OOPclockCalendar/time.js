@@ -36,6 +36,4 @@ class Time {
     get shortTime () {
         return `${this.hours}:${this.minutes}`;
     }
-};
-
-
+}

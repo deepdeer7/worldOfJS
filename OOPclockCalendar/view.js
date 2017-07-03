@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 class View {
     constructor () {
         this.element = document.querySelector('.clock-calendar');
