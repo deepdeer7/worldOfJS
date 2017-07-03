@@ -1,0 +1,21 @@
+@font-face {
+    font-family: XRay;
+    src:url(../fonts/XRay.otf);
+}
+
+.clock-calendar {
+    background-color: #D3D3D3;
+    top: 40%;
+    left: 25%;
+    position: absolute;
+    font-size: 11em;
+    color: #000;
+    font-family: XRay;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.color {
+    background-color: #BB442B;
+}
