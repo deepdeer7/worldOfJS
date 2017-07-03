@@ -1,7 +1,6 @@
 'use strict';
 
 class Time {
-
     constructor () {
         this.date = new Date();
         this.fullYear = this.normalizeDate(this.date.getFullYear());
