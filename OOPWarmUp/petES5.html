@@ -31,34 +31,39 @@
                 return Pet_ES5M;
             })();
 
-            function Cat (name) {
-                this.name = name;
-            }
+            var Cat = (function() {
+                function Cat (name) {
+                    this.name = name;
+                }
 
-            Cat.prototype = Object.create(Pet.prototype);
+                Cat.prototype = Object.create(Pet.prototype);
 
-            Cat.prototype.meow = function () {
-                return 'meow';
-            }
+                Cat.prototype.meow = function () {
+                    return 'meow';
+                }
 
-            var cat = new Cat();
+                return Cat;
+            })();
 
-            function Dog (name) {
-                this.name = name;
-            }
+            var cat = new Cat('hi');
 
-            Dog.prototype = Object.create(Pet.prototype);
+            var Dog = (function() {
+                function Dog (name) {
+                    this.name = name;
+                }
 
+                Dog.prototype = Object.create(Pet.prototype);
 
-            Dog.prototype.guard = function () {
-                return 'gav-gav';
-            }
+                Dog.prototype.guard = function () {
+                    return 'gav-gav';
+                }
+
+                return Dog;
+            })();
 
             var dog = new Dog('elvis');
 
             console.log(dog);
-
-
         </script> 
     </body>
 </html>

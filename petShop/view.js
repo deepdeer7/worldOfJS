@@ -7,30 +7,28 @@ class PetShopView extends PetShop {
     }
 
     generateTextOfCats () {
-        let listFirst = document.createElement('div');
-
         this.createListOfCats();
-        this.makeList(listFirst, `All cats which we have in our shop:`, this.listOfCats);
+
+        this.makeList(`All cats which we have in our shop:`, this.listOfCats);
     }
 
     generateGreaterThanAverage () {
-        let listThird = document.createElement('div');
-
         this.createListOfGreaterThanAverage();
-        this.makeList(listThird, `All pets which price greater than average:`,
+
+        this.makeList(`All pets which price greater than average:`,
             this.namesOfGreaterThanAverage.split(' '));
     }
 
     generateTextOfWhiteOrFluffy () {
-        let listSecond = document.createElement('div');
-
         this.createListWhiteOrFluffy();
-        this.makeList(listSecond, `All pets which fluffy or have white color:`,
+
+        this.makeList(`All pets which fluffy or have white color:`,
             this.namesOfWhiteOrFluffy.split(' '));
     }
 
-    makeList (element, header, list) {
-        let li = ``,
+    makeList (header, list) {
+        let element = document.createElement('div'),
+            li = ``,
             ul = ``,
             text = ``;
 

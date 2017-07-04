@@ -7,10 +7,3 @@ function main () {
   
     controller.showTimer();
 }
-
-
-
-
-
-
-

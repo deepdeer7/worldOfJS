@@ -6,31 +6,32 @@
     <body>
         <script>
             'use strict';
+
+            var Pet = (function() {
+                function jump () {
+                    console.log('i can jump');
+                }
             
-            class Pet {
-                constructor (name) {
-                    this.name = name;
+                class Pet {
+                    constructor (name) {
+                        this.name = name;
+                    }
+
+                    go () {
+                        jump();
+
+                        return 'pet can go';
+                    }
+
+                    breathe () {
+                        return 'pet breathe easily';
+                    }
                 }
 
-                jump () {
-                    return 'jump';
-                }
-
-                go () {
-                    jump();
-                    return 'pet can go';
-                }
-
-                breathe () {
-                    return 'pet breathe easily';
-                }
-            }
+                return Pet;
+            })();
 
             class Cat extends Pet {
-                constructor (name) {
-                    super(name);
-                }
-
                 meow () {
                     return 'meow';
                 }
@@ -47,10 +48,9 @@
                 }
             }
 
+            var kitty = new Dog('Pit', 55);
 
-            var dog = new Dog('Pit', 55);
-
-            console.log(dog);
+            console.log(kitty.go());
         </script>
     </body>
 </html>
