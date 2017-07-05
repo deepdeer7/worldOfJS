@@ -41,7 +41,7 @@ function countDifficult (min, max) {
 
         for (let j = 0; j < array.length; j++) {
             let num = Number(array[j]);
-            num % 2 == 0 ? even += num : odd += num;
+            num % 2 == 0? even += num : odd += num;
         }
 
         if (even === odd) {
@@ -53,7 +53,7 @@ function countDifficult (min, max) {
 }
 
 function compareFunction (simple, difficult) {
-    return (simple > difficult) ? `simple:${simple}` : `difficult:${difficult}`;
+    return (simple > difficult)? `simple:${simple}` : `difficult:${difficult}`;
 }
 
 function preValidate (context, min, max) {

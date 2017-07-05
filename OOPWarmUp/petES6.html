@@ -40,7 +40,16 @@
             class Dog extends Pet {
                 constructor (name, age) {
                     super(name);
-                    this.age = age;
+                    this._age = age;
+                }
+
+                get age () {
+                    return this._age;
+                }
+
+                set age (value) {
+                    if (typeof value !== 'number') return;
+                    this._age = value;
                 }
 
                 guard () {

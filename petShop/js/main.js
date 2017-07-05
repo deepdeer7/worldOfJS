@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', main, false);
 
 function main () {
-    let controller = new PetShopView();
+    let view = new PetShopView();
   
-    controller.viewPets();
+    view.showAllLists();
 }

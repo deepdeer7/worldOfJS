@@ -21,7 +21,7 @@ function drawBoard (length, width, symbol) {
         newLength = length * 2;
 
         for (let j = 1; j < newLength; j++) {
-            chessBoard += (i % 2 === j % 2) ? `${symbol}` : ` `;
+            chessBoard += (i % 2 === j % 2)? `${symbol}` : ` `;
         }
 
         if (i === width) {
