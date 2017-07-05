@@ -30,16 +30,15 @@ class PetShop {
              return sum + current.price;
         }, 0);
 
-        averageSum = totalSum / length
-
+        averageSum = totalSum / length;
         return averageSum;
     }
 
     createListOfCats () {
         let listOfCats = this.animals.filter((pet) => {
             return pet instanceof Cat;
-        })
-
+        });
+        
         return listOfCats;
     }
 

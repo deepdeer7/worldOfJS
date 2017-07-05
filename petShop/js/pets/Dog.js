@@ -11,7 +11,9 @@ class Dog extends Pet {
     }
 
     set name (value) {
-    	if (typeof value !== 'string') return;
+    	if (typeof value !== 'string') {
+            return;
+        } 
 
     	this._name = value;
     }

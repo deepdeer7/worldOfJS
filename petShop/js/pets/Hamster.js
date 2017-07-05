@@ -11,7 +11,9 @@ class Hamster extends Pet {
     }
 
     set isFluffy (value) {
-    	if (typeof value !== 'boolean') return;
+    	if (typeof value !== 'boolean') {
+            return;
+        } 
 
     	this._isFluffy = value;
     }

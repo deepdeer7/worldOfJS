@@ -11,7 +11,9 @@ class Pet {
     }
 
     set color (value) {
-    	if (typeof value !== 'string') return;
+    	if (typeof value !== 'string') {
+            return;
+        } 
     	
     	this._color = value;
     }
@@ -21,8 +23,10 @@ class Pet {
     }
 
     set price (value) {
-    	if (typeof value !== 'number') return;
+    	if (typeof value !== 'number') {
+            return;
+        }
 
-    	return this._price;
+    	this._price;
     }
 }

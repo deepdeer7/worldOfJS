@@ -12,7 +12,9 @@ class Cat extends Pet {
     }
 
     set isFluffy (value) {
-    	if (typeof value !== 'boolean') return;
+    	if (typeof value !== 'boolean') {
+            return;
+        } 
 
     	this._isFluffy = value;
     }
@@ -22,7 +24,9 @@ class Cat extends Pet {
     }
 
     set name (value) {
-    	if (typeof value !== 'string') return;
+    	if (typeof value !== 'string') {
+            return;
+        } 
 
     	this._name = value;
     }
