@@ -55,13 +55,7 @@ class View {
     }
 
     showEvents() {
-        this.element.addEventListener('click', () => {
-            this.toggleState();
-
-            this.showTimer();
-        });
-
-        this.element.addEventListener('contextmenu', (e) => {
+        let clickRightButton = (e) => {
             e.preventDefault();
 
             if (this.state === 'clock' || this.state === 'full') {
@@ -71,10 +65,22 @@ class View {
             }
 
             this.showTimer();
-        });
+        }
 
-        this.element.addEventListener('mouseover', () =>  this.element.classList.toggle('color'));
+        let clickLeftButton = () => {
+            this.toggleState();
 
-        this.element.addEventListener('mouseout', () =>  this.element.classList.toggle('color'));
+            this.showTimer();
+        }
+
+        let toggle = () =>  this.element.classList.toggle('color');
+
+        this.element.addEventListener('click', clickLeftButton);
+
+        this.element.addEventListener('contextmenu', clickRightButton);
+
+        this.element.addEventListener('mouseover', toggle);
+        
+        this.element.addEventListener('mouseout', toggle);
     }
 }
