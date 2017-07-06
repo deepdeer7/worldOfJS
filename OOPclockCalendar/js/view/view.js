@@ -55,7 +55,11 @@ class View {
     }
 
     showEvents() {
-        let clickRightButton = (e) => {
+        let clickRightButton,
+            clickLeftButton,
+            toggle;
+
+        clickRightButton = (e) => {
             e.preventDefault();
 
             if (this.state === 'clock' || this.state === 'full') {
@@ -67,20 +71,20 @@ class View {
             this.showTimer();
         }
 
-        let clickLeftButton = () => {
+        clickLeftButton = () => {
             this.toggleState();
 
             this.showTimer();
         }
 
-        let toggle = () =>  this.element.classList.toggle('color');
+        toggle = () =>  this.element.classList.toggle('color');
 
         this.element.addEventListener('click', clickLeftButton);
 
         this.element.addEventListener('contextmenu', clickRightButton);
 
         this.element.addEventListener('mouseover', toggle);
-        
+
         this.element.addEventListener('mouseout', toggle);
     }
 }
