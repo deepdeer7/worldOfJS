@@ -17,4 +17,16 @@ class Dog extends Pet {
 
     	this._name = value;
     }
+
+    isFluffyOrWhite () {
+        return this.isFluffyPet() || this.isColorWhite();
+    }
+
+    toJSON () {
+        return {
+            name: this._name,
+            color: this._color,
+            price: this._price
+        };
+    }
 }

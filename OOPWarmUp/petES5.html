@@ -6,6 +6,12 @@
     <body>
         <script>
             'use strict';
+
+            function extend (Child, Parent) {
+                var f = function () {};
+                f.prototype = Parent.prototype;
+                Child.prototype = new f();
+            }
             
             var Pet = (function () {
                 function Pet_ES5M (name) {
@@ -36,7 +42,7 @@
                     this.name = name;
                 }
 
-                Cat.prototype = Object.create(Pet.prototype);
+                extend(Cat, Pet);
 
                 Cat.prototype.meow = function () {
                     return 'meow';
@@ -52,7 +58,7 @@
                     this.name = name;
                 }
 
-                Dog.prototype = Object.create(Pet.prototype);
+                extend(Dog, Pet);
 
                 Dog.prototype.guard = function () {
                     return 'gav-gav';

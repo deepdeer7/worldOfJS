@@ -7,26 +7,27 @@ class PetShopView {
     }
 
     showAllLists () {
-        this.createList(`All cats which we have in our shop:`, this.petShop.createListOfCats());
-        this.createList(`All pets which price greater than average:`, this.petShop.createListOfExpensive());
-        this.createList(`All pets which fluffy or have white color:`, this.petShop.createListWhiteAndFluffy());
+        let firstDiv = this.getTemplate(`All cats which we have in our shop:`, this.petShop.createListOfCats());
+        let secondDiv = this.getTemplate(`All pets which price greater than average:`, this.petShop.createListOfExpensive());
+        let thirdDiv = this.getTemplate(`All pets which fluffy or have white color:`, this.petShop.createListWhiteAndFluffy());
+
+        this.element.innerHTML = `${firstDiv}${secondDiv}${thirdDiv}`;
     }
 
-    createList (header, list) {
-        let li = ``,
-            text = ``;
+    getTemplate (header, list) {
+        let li = ``;
 
         list.forEach((pet) => {
-            li += `<li> ${pet.name || `Hamster`} </li>`;
+            let json = pet.toJSON();
+            li += `<li> ${json['name'] || `Hamster`} </li>`;
+
         });
 
-        text = `<div class = 'column'>
+        return `<div class = 'column'>
                     <h2>${header}</h2>
                     <ul>
                         ${li}
                     </ul>
-                <div>`;
-
-        this.element.innerHTML += text;
-    }
+                <div>`; 
+    } 
 }

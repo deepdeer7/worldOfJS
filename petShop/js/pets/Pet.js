@@ -27,6 +27,14 @@ class Pet {
             return;
         }
 
-    	this._price;
+    	this._price = value;
+    }
+
+    isColorWhite () {
+        let color = 'white';
+        return this._color === color;
+    }
+
+    isFluffyPet () {
     }
 }

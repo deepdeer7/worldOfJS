@@ -3,7 +3,6 @@
 class PetShop {
     constructor () {
         this.animals = this.initAnimals();
-        this.average = this.countAverageSum();
     }
 
     initAnimals () {
@@ -31,6 +30,7 @@ class PetShop {
         }, 0);
 
         averageSum = totalSum / length;
+
         return averageSum;
     }
 
@@ -43,8 +43,10 @@ class PetShop {
     }
 
     createListOfExpensive () {
+        let average = this.countAverageSum();
+
         let listOfExpensive = this.animals.filter((pet) => {
-            return pet.price > this.average;
+            return pet.price > average;
         });
 
         return listOfExpensive;
@@ -52,7 +54,7 @@ class PetShop {
 
     createListWhiteAndFluffy () {
         let listOfWhiteAndFluffy = this.animals.filter((pet) => {
-            return (pet.isFluffy || pet.color === 'white');
+            return (pet.isFluffyOrWhite());
         });
 
         return listOfWhiteAndFluffy;

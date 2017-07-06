@@ -17,4 +17,20 @@ class Hamster extends Pet {
 
     	this._isFluffy = value;
     }
+
+    isFluffyPet () {
+        return this._isFluffy === true;
+    }
+    
+    isFluffyOrWhite () {
+        return this.isFluffyPet() || this.isColorWhite();
+    }
+
+    toJSON () {
+        return {
+            color: this._color,
+            price: this._price,
+            isFluffy: this._isFluffy
+        };
+    }
 }

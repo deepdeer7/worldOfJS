@@ -7,7 +7,7 @@ class Cat extends Pet {
         this._isFluffy = isFluffy;
     }
 
-      get isFluffy () {
+    get isFluffy () {
     	return this._isFluffy;
     }
 
@@ -29,5 +29,22 @@ class Cat extends Pet {
         } 
 
     	this._name = value;
+    }
+
+    isFluffyPet () {
+        return this._isFluffy === true;
+    }
+    
+    isFluffyOrWhite () {
+        return this.isFluffyPet() || this.isColorWhite();
+    }
+
+    toJSON () {
+        return {
+            name: this._name,
+            color: this._color,
+            price: this._price,
+            isFluffy: this._isFluffy
+        };
     }
 }

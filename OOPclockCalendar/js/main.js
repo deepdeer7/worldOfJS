@@ -3,7 +3,8 @@
 document.addEventListener('DOMContentLoaded', main, false);
 
 function main () {
-    let controller = new View();
+    let view = new View();
   
-    controller.showTimer();
+    view.showTimer();
+    view.showEvents();
 }

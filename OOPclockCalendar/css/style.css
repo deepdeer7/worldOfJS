@@ -4,11 +4,13 @@
 }
 
 .clock-calendar {
+    border-radius: 50%;
+    text-align: center;
+    padding: 20px;
+    width: 400px;
     background-color: #D3D3D3;
-    top: 40%;
-    left: 25%;
-    position: absolute;
-    font-size: 11em;
+    margin: auto;
+    font-size: 5em;
     color: #000;
     font-family: XRay;
     -webkit-user-select: none;

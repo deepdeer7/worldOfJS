@@ -4,28 +4,6 @@ class View {
     constructor () {
         this.element = document.querySelector('.clock-calendar');
         this.state = 'clock';
-
-        this.element.addEventListener('click', () => {
-            this.toggleState();
-
-            this.showTimer();
-        });
-
-        this.element.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
-
-            if (this.state === 'clock' || this.state === 'full') {
-                this.state = 'calendar';
-            } else if (this.state === 'calendar' || this.state === 'calendarUa') {
-                this.state = 'clock';
-            }
-
-            this.showTimer();
-        });
-
-        this.element.addEventListener('mouseover', () =>  this.element.classList.toggle('color'));
-
-        this.element.addEventListener('mouseout', () =>  this.element.classList.toggle('color'));
     }
 
     refresh () {
@@ -74,5 +52,29 @@ class View {
         }
 
         return this.state;    
+    }
+
+    showEvents() {
+        this.element.addEventListener('click', () => {
+            this.toggleState();
+
+            this.showTimer();
+        });
+
+        this.element.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+
+            if (this.state === 'clock' || this.state === 'full') {
+                this.state = 'calendar';
+            } else if (this.state === 'calendar' || this.state === 'calendarUa') {
+                this.state = 'clock';
+            }
+
+            this.showTimer();
+        });
+
+        this.element.addEventListener('mouseover', () =>  this.element.classList.toggle('color'));
+
+        this.element.addEventListener('mouseout', () =>  this.element.classList.toggle('color'));
     }
 }
