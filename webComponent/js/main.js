@@ -8,7 +8,5 @@ function main () {
 
     document.body.appendChild(view);
 
-	view.start();
     view.showTimer();
-    view.showEvents();
 }

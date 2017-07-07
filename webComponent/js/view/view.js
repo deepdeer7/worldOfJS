@@ -92,4 +92,9 @@ class View extends HTMLElement {
         this.addEventListener('mouseout', toggle);
     }
 
+    attachedCallback () {
+        this.start();
+        this.showEvents();
+    }
+
 }
