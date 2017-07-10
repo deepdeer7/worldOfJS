@@ -3,88 +3,51 @@
 class View {
     constructor () {
         this.element = document.querySelector('.clock-calendar');
-        this.state = 'clock';
+        this.time = new Time();
+        this.outputState;
     }
 
     refresh () {
-        let result,
-            time = new Time();
-        
-        if (this.state === 'clock') {
-            result = time.shortTime;
-        } else if (this.state === 'full') {
-            result = time.longTime;
-        } else if (this.state === 'calendarUa') {
-            result = time.uaCalendar;
-        } else if (this.state === 'calendar') {
-            result = time.euCalendar;
+        if (this.time.state === 'clock') {
+            this.outputState = this.time.getTime('shortTime');
+        } else if (this.time.state === 'full') {
+            this.outputState = this.time.getTime('longTime');
+        } else if (this.time.state === 'calendarUa') {
+            this.outputState = this.time.getCalendar('uaCalendar');
+        } else if (this.time.state === 'calendar') {
+            this.outputState = this.time.getCalendar('euCalendar');
         }
 
-        return result;
+        return this.outputState;
     }
 
-    showTimer () {
-        let timeCash = '',
-            intervalId;
+    showTime () {
+        this.time.start(() => this.refreshCallback());
+    }
 
-        this.element.innerHTML = this.refresh();
+    refreshCallback () {
+        this.currentValue = this.refresh();
 
-        intervalId = setInterval(() => {
-            let currentTime = this.refresh();
-
-            // update only if time's changed
-            if (timeCash !== currentTime) {
-                this.element.innerHTML = currentTime;
-                timeCash = currentTime;
-            }
-        }, 1000);
-    };
-
-    toggleState () {
-        if (this.state === 'clock') {
-            this.state = 'full';
-        } else if (this.state === 'full') {
-            this.state = 'clock';
-        } else if (this.state === 'calendar') {
-            this.state = 'calendarUa';
-        } else if (this.state === 'calendarUa') {
-            this.state = 'calendar';
+        if (this.currentValue !== this.element.innerHTML) {
+            this.element.innerHTML = this.currentValue;
         }
-
-        return this.state;    
     }
 
     showEvents() {
-        let clickRightButton,
-            clickLeftButton,
-            toggle;
+        this.element.addEventListener('click', () => {
+            this.time.toggleState();
+            this.refreshCallback();
 
-        clickRightButton = (e) => {
+        });
+
+        this.element.addEventListener('contextmenu', (e) => {
             e.preventDefault();
+            this.time.clickRight();
+            this.refreshCallback();
 
-            if (this.state === 'clock' || this.state === 'full') {
-                this.state = 'calendar';
-            } else if (this.state === 'calendar' || this.state === 'calendarUa') {
-                this.state = 'clock';
-            }
+        });
 
-            this.showTimer();
-        }
-
-        clickLeftButton = () => {
-            this.toggleState();
-
-            this.showTimer();
-        }
-
-        toggle = () =>  this.element.classList.toggle('color');
-
-        this.element.addEventListener('click', clickLeftButton);
-
-        this.element.addEventListener('contextmenu', clickRightButton);
-
-        this.element.addEventListener('mouseover', toggle);
-
-        this.element.addEventListener('mouseout', toggle);
+        this.element.addEventListener('mouseover', () => this.element.classList.toggle('color'));
+        this.element.addEventListener('mouseout', () => this.element.classList.toggle('color'));
     }
 }

@@ -1,12 +1,7 @@
 'use strict';
 
-document.addEventListener('DOMContentLoaded', main, false);
+window.addEventListener('load', main, false);
 
 function main () {
-    let El = document.registerElement('clock-calendar', View),
-        view = new El();
-
-    document.body.appendChild(view);
-
-    view.showTimer();
+    document.registerElement('clock-calendar', View);
 }

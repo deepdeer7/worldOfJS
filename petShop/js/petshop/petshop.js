@@ -10,53 +10,44 @@ class PetShop {
             new Dog('green', 100, 'Patrick'),
             new Dog('white', 50, 'Dave'),
             new Dog('blue', 70, 'Seno'),
-            new Cat('white', 120, 'Sasha', true),
-            new Cat('pink', 70, 'Anya', false),
-            new Cat('black', 95, 'Vasya', true),
-            new Hamster('white', 100, false),
-            new Hamster('orange', 70, true),
-            new Hamster('brown', 60, false),
-            new Hamster('white', 120, false)
+            new Cat('white', 120, 'Sasha', 3),
+            new Cat('pink', 70, 'Anya', 7),
+            new Cat('black', 95, 'Vasya', 9),
+            new Hamster('white', 100, 4),
+            new Hamster('white', 70, 1),
+            new Hamster('brown', 60, 6),
+            new Hamster('white', 120, 1)
         ];
     }
 
     countAverageSum () {
         let length = this.animals.length,
-            totalSum,
-            averageSum;  
+            totalSum;  
 
         totalSum = this.animals.reduce((sum, current) => {
              return sum + current.price;
         }, 0);
 
-        averageSum = totalSum / length;
-
-        return averageSum;
+        return totalSum / length;
     }
 
     createListOfCats () {
-        let listOfCats = this.animals.filter((pet) => {
+        return this.animals.filter((pet) => {
             return pet instanceof Cat;
         });
-        
-        return listOfCats;
     }
 
     createListOfExpensive () {
         let average = this.countAverageSum();
 
-        let listOfExpensive = this.animals.filter((pet) => {
+        return this.animals.filter((pet) => {
             return pet.price > average;
         });
-
-        return listOfExpensive;
     }
 
     createListWhiteAndFluffy () {
-        let listOfWhiteAndFluffy = this.animals.filter((pet) => {
+        return this.animals.filter((pet) => {
             return (pet.isFluffyOrWhite());
         });
-
-        return listOfWhiteAndFluffy;
     }
 }

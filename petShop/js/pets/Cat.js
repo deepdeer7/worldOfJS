@@ -1,10 +1,10 @@
 'use strict';
 
 class Cat extends Pet {
-    constructor (color, price, name, isFluffy) {
+    constructor (color, price, name, isFluffyness) {
         super(color, price);
         this._name = name;
-        this._isFluffy = isFluffy;
+        this._isFluffyness = isFluffyness;
     }
 
     get isFluffy () {
@@ -12,7 +12,7 @@ class Cat extends Pet {
     }
 
     set isFluffy (value) {
-    	if (typeof value !== 'boolean') {
+    	if (value < 0 || value > 10) {
             return;
         } 
 
@@ -32,19 +32,8 @@ class Cat extends Pet {
     }
 
     isFluffyPet () {
-        return this._isFluffy === true;
-    }
-    
-    isFluffyOrWhite () {
-        return this.isFluffyPet() || this.isColorWhite();
-    }
-
-    toJSON () {
-        return {
-            name: this._name,
-            color: this._color,
-            price: this._price,
-            isFluffy: this._isFluffy
-        };
+        if (this._isFluffyness > 2 && this._isFluffyness < 10) {
+            return true;
+        }
     }
 }

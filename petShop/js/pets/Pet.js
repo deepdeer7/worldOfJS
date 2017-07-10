@@ -36,5 +36,10 @@ class Pet {
     }
 
     isFluffyPet () {
+        return undefined;
+    }
+
+    isFluffyOrWhite () {
+        return this.isFluffyPet() || this.isColorWhite();
     }
 }

@@ -1,8 +1,11 @@
 'use strict';
 
-var Time = (function() {
-    
-    function normalizeDate (parameter) {
+class Time {
+    constructor () {
+        this.state = 'clock';
+    }
+
+    normalizeDate (parameter) {
         if (parameter < 10) {
             parameter = `0${parameter}`;
         }
@@ -10,35 +13,62 @@ var Time = (function() {
         return parameter;
     }
 
-    class Time {
-        constructor () {
-            this.date = new Date();
-            this.fullYear = normalizeDate(this.date.getFullYear());
-            this.shortYear = normalizeDate(this.date.getFullYear() % 100);
-            this.month = normalizeDate(this.date.getMonth() + 1);
-            this.day = normalizeDate(this.date.getDate());
-            this.hours = normalizeDate(this.date.getHours());
-            this.minutes = normalizeDate(this.date.getMinutes());
-            this.seconds = normalizeDate(this.date.getSeconds());
+    getTime (format) {
+        let result,
+            date = new Date(),
+            hours = this.normalizeDate(date.getHours()),
+            minutes = this.normalizeDate(date.getMinutes()),
+            seconds = this.normalizeDate(date.getSeconds());
+
+        if (format === 'longTime') {
+            result = `${hours}:${minutes}:${seconds}`;
+        } else if (format === 'shortTime') {
+            result = `${hours}:${minutes}`;
         }
 
-        get uaCalendar () {
-            return `${this.day}:${this.month}:${this.fullYear}`;
+        return result;
+    }
+
+    getCalendar (format) {
+        let result,
+            date = new Date(),
+            year = this.normalizeDate(date.getFullYear()),
+            month = this.normalizeDate(date.getMonth() + 1),
+            day = this.normalizeDate(date.getDate());
+
+        if (format === 'uaCalendar') {
+            result = `${day}:${month}:${year}`;    
+        } else if (format === 'euCalendar') {
+            result = `${month}/${day}/${year % 100}`;
         }
 
-        get euCalendar () {
-            return `${this.month}/${this.day}/${this.shortYear}`;
+        return result;
+    }
+
+    toggleState () {
+        if (this.state === 'clock') {
+            this.state = 'full';
+        } else if (this.state === 'full') {
+            this.state = 'clock';
+        } else if (this.state === 'calendar') {
+            this.state = 'calendarUa';
+        } else if (this.state === 'calendarUa') {
+            this.state = 'calendar';
         }
 
-        get longTime () {
-            return `${this.hours}:${this.minutes}:${this.seconds}`;
-        }
+        return this.state;    
+    }
 
-        get shortTime () {
-            return `${this.hours}:${this.minutes}`;
+    clickRight () {
+        if (this.state === 'clock' || this.state === 'full') {
+            this.state = 'calendar';
+        } else if (this.state === 'calendar' || this.state === 'calendarUa') {
+            this.state = 'clock';
         }
     }
 
-    return Time;
-
-})();
+    start (callback) {
+        callback();
+        setInterval(() => callback(), 1000);
+    }
+}

@@ -7,19 +7,18 @@ class PetShopView {
     }
 
     showAllLists () {
-        let firstDiv = this.getTemplate(`All cats which we have in our shop:`, this.petShop.createListOfCats());
-        let secondDiv = this.getTemplate(`All pets which price greater than average:`, this.petShop.createListOfExpensive());
-        let thirdDiv = this.getTemplate(`All pets which fluffy or have white color:`, this.petShop.createListWhiteAndFluffy());
+        let firstDiv = this.getTemplate('All cats which we have in our shop:', this.petShop.createListOfCats());
+        let secondDiv = this.getTemplate('All pets which price greater than average:', this.petShop.createListOfExpensive());
+        let thirdDiv = this.getTemplate('All pets which fluffy or have white color:', this.petShop.createListWhiteAndFluffy());
 
         this.element.innerHTML = `${firstDiv}${secondDiv}${thirdDiv}`;
     }
 
     getTemplate (header, list) {
-        let li = ``;
+        let li = '';
 
         list.forEach((pet) => {
-            let json = pet.toJSON();
-            li += `<li> ${json['name'] || `Hamster`} </li>`;
+            li += `<li> ${pet.name || 'Hamster'} </li>`;
 
         });
 
