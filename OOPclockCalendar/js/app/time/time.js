@@ -32,14 +32,14 @@ class Time {
     getCalendar (format) {
         let result,
             date = new Date(),
-            year = this.normalizeDate(date.getFullYear()),
+            year = date.getFullYear(),
             month = this.normalizeDate(date.getMonth() + 1),
             day = this.normalizeDate(date.getDate());
 
         if (format === 'uaCalendar') {
             result = `${day}:${month}:${year}`;    
         } else if (format === 'euCalendar') {
-            result = `${month}/${day}/${year % 100}`;
+            result = `${month}/${day}/${this.normalizeDate(year % 100)}`;
         }
 
         return result;
@@ -65,6 +65,8 @@ class Time {
         } else if (this.state === 'calendar' || this.state === 'calendarUa') {
             this.state = 'clock';
         }
+
+        return this.state;
     }
 
     start (callback) {

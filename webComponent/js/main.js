@@ -3,5 +3,5 @@
 window.addEventListener('load', main, false);
 
 function main () {
-    document.registerElement('clock-calendar', View);
+    document.registerElement('clock-calendar', ClockCalendar);
 }
