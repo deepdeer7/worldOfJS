@@ -3,7 +3,7 @@ describe('clock and calendar', function () {
         time;
 
     beforeEach(function () {
-        time = new Time();
+        time = new ClockCalendar();
     });
 
     describe('normalize time', function () {

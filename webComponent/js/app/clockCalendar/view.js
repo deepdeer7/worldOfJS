@@ -1,5 +1,11 @@
 'use strict';
 
+/* for testing
+class HTMLElement {
+
+}
+*/
+
 class ClockCalendar extends HTMLElement {
     normalizeDate (parameter) {
         if (parameter < 10) {
@@ -61,6 +67,8 @@ class ClockCalendar extends HTMLElement {
         } else if (this.state === 'calendar' || this.state === 'calendarUa') {
             this.state = 'clock';
         }
+
+        return this.state;
     }
 
     startTime (callback) {
