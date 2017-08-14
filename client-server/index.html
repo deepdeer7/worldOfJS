@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS functions</title>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    </head>
+    <body>
+ 
+
+ 
+    <script>
+
+  
+var Lead = JSON.stringify({
+        username: 'OledgShvets',
+        password: 'ghd22df'
+      });
+
+
+makeCorsRequest();
+
+// Create the XHR object.
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+// Helper method to parse the title tag from the response.
+
+// Make the actual CORS request.
+function makeCorsRequest() {
+  // This is a sample server that supports CORS.
+  var url = 'http://192.168.210.128:8080/login';
+
+  var xhr = createCORSRequest('POST', url);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = function() {
+    var text = xhr.responseText;
+    alert('Response from CORS request to ' + text);
+  };
+
+  xhr.onerror = function() {
+    console.log(xhr.getAllResponseHeaders());
+  };
+
+  xhr.send(Lead);
+}
+
+
+
+/*
+
+
+
+
+var apiurl = 'http://192.168.210.128:8080/login';
+    var a = new XMLHttpRequest();
+    
+    function SaveLead() {
+    var Lead = {
+            "username": "OlegShvets",
+    "password": "ghd22df"
+        };
+
+
+
+
+
+
+         $.ajax({
+
+     beforeSend: function (xhr) {
+    xhr.setRequestHeader ("Authorization", "Basic " + btoa("OlegShvets:ghd22df"));
+},      
+            type: 'POST',
+             url: apiurl,
+             ContentType: "application/json; charset=utf-8",
+             data: Lead,
+             crossOrigin: true,
+             crossDomain: true,
+             dataType: "json",
+             cache: false,
+             complete: function (res) {
+                 alert("Data Added Successfully");
+             },
+             error: function (xhr) {
+                 alert(a.responseText);
+             }
+         })
+
+    }
+	
+
+    SaveLead();
+
+
+
+   
+/*
+
+    $.ajax({
+
+  // The 'type' property sets the HTTP method.
+  // A value of 'PUT' or 'DELETE' will trigger a preflight request.
+  type: 'POST',
+
+  data: {
+            "username": "OlegShvets",
+    "password": "ghd22df"
+        },
+
+        dataType: "json",
+
+
+
+  // The URL to make the request to.
+  url: 'http://192.168.210.128:8080/login',
+
+  // The 'contentType' property sets the 'Content-Type' header.
+  // The JQuery default for this property is
+  // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
+  // a preflight. If you set this value to anything other than
+  // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
+  // you will trigger a preflight request.
+  contentType: 'application/json; charset=utf-8',
+  crossDomain: true,
+
+  xhrFields: {
+    // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
+    // This can be used to set the 'withCredentials' property.
+    // Set the value to 'true' if you'd like to pass cookies to the server.
+    // If this is enabled, your server must respond with the header
+    // 'Access-Control-Allow-Credentials: true'.
+    withCredentials: true
+  },
+
+  headers: {
+    'Access-Control-Allow-Origin: true'
+    // Set any custom headers here.
+    // If you set any non-simple headers, your server must include these
+    // headers in the 'Access-Control-Allow-Headers' response header.
+  },
+
+  success: function() {
+    alert("Data Added Successfully");
+    // Here's where you handle a successful response.
+  },
+
+  error: function() {
+    alert("Error");
+    // Here's where you handle an error response.
+    // Note that if the error was due to a CORS issue,
+    // this function will still fire, but there won't be any additional
+    // information about the error.
+  }
+});
+
+
+    */
+		
+	
+    	
+    	
+
+
+
+    </script>
+    </body>
+
+
+</html>

@@ -4,7 +4,7 @@ let requestHandlers = require("./requestHandlers");
 
 let handle = {};
 
-handle["/"] = requestHandlers.time;
+handle["/"] = requestHandlers.uploadIndex;
 handle["/time"] = requestHandlers.time;
 handle["/date"] = requestHandlers.date;
 
