@@ -1,0 +1,115 @@
+.what-needs {
+	height: 70px;
+	width: 500px;
+	background-color: #fff;
+	color: #676565;
+	border: 2px solid #676565;
+
+	.arrow-block {
+		vertical-align: top;
+		display: inline-block;
+		width: 15%;
+		height: 100%;
+		font-size: 40px;
+		background-color: green;
+
+		.arrow {
+			display: inline-block;
+			padding-top: 40px;
+			padding-left: 15px;
+			transform: rotate(270deg);
+		}
+	}
+
+	.input-block {
+		display: inline-block;
+
+		.input {
+			width:  350px;
+			padding-top: 8px;
+			font-size: 30px;
+			border: none;
+		}
+
+
+		.input:focus {
+			outline: none;
+		}
+	}
+
+}
+
+.listOfTasks {
+	height: 70px;
+	width: 500px;
+	background-color: #fff;
+	color: #676565;
+	border: 2px solid #676565;
+	list-style: none;
+}
+
+.circle {
+	display: inline-block;
+	width: 33px;
+	height: 33px;
+	border-radius: 50%;
+	border: 2px solid #676565;
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+.arrow-circle-block {
+	vertical-align: top;
+	display: inline-block;
+	width: 15%;
+	height: 100%;
+	background-color: green;
+}
+
+.arror-in-circle {
+	display: none;
+}
+
+.name-of-task {
+	margin-top: 18px;
+    font-size: 24px;
+    display: inline-block;
+    width: 380px;
+}
+
+.active {
+    .arror-in-circle {
+  	    font-size: 24px;
+  		display: inline-block;
+  		color: #00FF40;
+  		padding-top: 4px;
+  		padding-left: 7px;
+	}
+
+	.name-of-task {
+		text-decoration: line-through;
+	}
+}
+
+.block-list {
+	margin: 0;
+	padding: 0;
+}
+
+.cross {
+	visibility: hidden;
+}
+
+
+.listOfTasks:hover {
+	.cross {
+		visibility: visible;
+		opacity: 0.2;
+		color: #DA0D0D;
+    	padding-left: 5px;
+    	margin-top: 15px;
+    	font-size: 26px;
+	}
+}
+
+

@@ -1,0 +1,27 @@
+<div class="what-needs">
+  <div class="arrow-block">
+    <div class="arrow">&#10094;</div>
+  </div>
+  <div class="input-block">
+  	<input class="input" placeholder="What needs to be done?"
+  	  [(ngModel)]="task"
+  	  (keyup.enter)="addTask()">
+  </div>
+</div>
+<ul class="block-list">
+  <li class="listOfTasks" *ngFor="let task of listOfTasks"
+   [ngClass]="{active: isActive(task)}">
+    <span class="arrow-circle-block">
+      <span class="circle" (click)="toggleStateOfTask(task)">
+        <span class="arror-in-circle">&#10003;</span>	
+      </span>
+    </span>
+    <span class="name-block">
+      <span class="name-of-task">
+  	    {{task}}
+      </span>
+      <span (click)="deleteTask(task)" class="cross">&#10005;</span>
+    </span>
+  </li> 	
+</ul>
+  
