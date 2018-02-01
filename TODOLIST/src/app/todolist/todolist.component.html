@@ -1,0 +1,32 @@
+<div class="what-needs">
+  <div class="arrow-block">
+    <div [ngClass]="{hiddenArrow: hidden}" class="arrow">&#10094;</div>
+  </div>
+  <div class="input-block">
+  	<input class="input" placeholder="What needs to be done?"
+  	  [(ngModel)]="taskName"
+  	  (keyup.enter)="addTask()">
+  </div>
+</div>
+<ul class="block-list">
+  <li class="listOfTasks" *ngFor="let task of listOfTasks; let i = index" [hidden]="task.hidden">
+    <span class="arrow-circle-block">
+      <span class="circle" (click)="toggleStateOfTask(task.name, i)">
+        <span [@taskStateArrow]="task.state" class="arrow-in-circle">&#10003;</span>	
+      </span>
+    </span>
+    <span class="name-block">
+      <span [@taskStateText]="task.state" class="name-of-task">
+  	    {{task.name}}
+      </span>
+      <span (click)="deleteTask(task.name, i)" class="cross">&#10005;</span>
+    </span>
+  </li> 	
+</ul>
+<div class="footer">{{quantity}} items left
+<button (click)="showAll()">All</button>
+<a routerLink="/active" (click)="showActive()">active</a>
+<button (click)="showCompleted()">completed</button>
+<button (click)="deleteCompleted()">Clear completed</button>
+</div>
+  
