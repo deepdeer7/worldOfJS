@@ -1,104 +1,177 @@
-.what-needs {
-	height: 70px;
-	width: 500px;
-	background-color: #fff;
-	color: #676565;
-	border: 2px solid #676565;
+$border-color: #e6e6e6;
 
-	.arrow-block {
-		vertical-align: top;
-		display: inline-block;
-		width: 15%;
-		height: 100%;
-		font-size: 40px;
-		background-color: green;
+.main-block {
+  width: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
-		.arrow {
-			display: inline-block;
-			padding-top: 40px;
-			padding-left: 15px;
-			transform: rotate(270deg);
-		}
+  .what-needs {
+    height: 60px;
+    background-color: #fff;
+    color: #676565;
 
-		.hiddenArrow {
-			display: none;
-		}
-	}
+    .arrow-block-input {
+      vertical-align: top;
+      display: inline-block;
+      width: 15%;
+      height: 100%;
+      font-size: 30px;
 
-	.input-block {
-		display: inline-block;
+      .arrow-toggle {
+        display: inline-block;
+        padding-top: 40px;
+        padding-left: 15px;
+        transform: rotate(270deg);
+        opacity: 0.5;
+      }
 
-		.input {
-			width:  350px;
-			padding-top: 8px;
-			font-size: 30px;
-			border: none;
-		}
+      .clickedArrow {
+        opacity: 1;
+      }
+    }
 
+    .input-name-block {
+      display: inline-block;
 
-		.input:focus {
-			outline: none;
-		}
-	}
+      .input-add-task {
+        width:  350px;
+        padding-top: 8px;
+        font-size: 30px;
+        border: none;
+        font-weight: 100;
+        color: #676565;
+      }
 
+      .input-add-task::placeholder {
+        font-style: italic;
+      }
+
+      .input-add-task:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .block-list {
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid rgba(230, 230, 230, .5);;
+
+    .taskList {
+      height: 60px;
+      background-color: #fff;
+      color: #676565;
+      border-top: 1px solid $border-color;
+      list-style: none;
+
+      .arrow-circle-block {
+        vertical-align: top;
+        display: inline-block;
+        width: 15%;
+        height: 100%;
+      }
+
+      .name-block {
+        display: inline-block;
+        vertical-align: top;
+        height: 100%;
+      }
+
+      .name-of-task {
+        padding-top: 13px;
+        font-size: 30px;
+        display: inline-block;
+        width: 380px;
+        font-weight: 100;
+        font-family: system-ui;
+      }
+
+      .cross {
+        visibility: hidden;
+      }
+    }
+
+    .taskList:hover {
+      .cross {
+        visibility: visible;
+        opacity: 0.2;
+        color: #DA0D0D;
+        padding-left: 5px;
+        margin-top: 15px;
+        font-size: 26px;
+      }
+
+      .cross:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid $border-color;
+    height: 40px;
+    color: #676565;
+
+    .left-items-text {
+      display: inline-block;
+      width: 90px;
+      margin-left: -10px;
+    }
+
+    .buttons a {
+      color: #676565;
+      text-decoration: none;
+      padding: 3px 6px 3px 4px;
+    }
+
+    .buttons a:not(.active):hover {
+      box-shadow: 0 0 3px rgba(244, 66, 101, 0.2);
+      border-radius: 3px;
+    }
+
+    .completed-display {
+      visibility: hidden;
+    }
+
+    .completed {
+      margin-right: -13px;
+    }
+
+    .completed:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
 }
 
-.block-list {
-	margin: 0;
-	padding: 0;
 
-	.listOfTasks {
-		height: 70px;
-		width: 500px;
-		background-color: #fff;
-		color: #676565;
-		border: 2px solid #676565;
-		list-style: none;
 
-		.arrow-circle-block {
-			vertical-align: top;
-			display: inline-block;
-			width: 15%;
-			height: 100%;
-			background-color: green;
+// js
 
-			.circle {
-				display: inline-block;
-				width: 33px;
-				height: 33px;
-				border-radius: 50%;
-				border: 2px solid #676565;
-				margin-left: 15px;
-				margin-top: 15px;
-			}
-		}
-
-		.name-of-task {
-	margin-top: 18px;
-    font-size: 24px;
-    display: inline-block;
-    width: 380px;
+.active {
+  box-shadow: 0 0 3px rgba(244, 66, 101, 0.5);
+  border-radius: 3px;
 }
 
-		.cross {
-			visibility: hidden;
-		}
-
-	}
-
-	.listOfTasks:hover {
-		.cross {
-			visibility: visible;
-			opacity: 0.2;
-			color: #DA0D0D;
-    		padding-left: 5px;
-    		margin-top: 15px;
-    		font-size: 26px;
-		}
-	}
+.changed-input-name {
+	width: 416px;
+	height: 56px;
+	box-shadow: inset 0px 0px 8px rgba(0,0,0,0.4);
+	border: 1px solid #000;
+	font-size: 30px;
+	font-weight: 100!important;
 }
 
+.changed-input-name:focus {
+	outline: none;
+}
 
+[hidden] {
+    display: none !important;
+}
 
 
 

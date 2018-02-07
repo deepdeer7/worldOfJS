@@ -1,32 +1,62 @@
-<div class="what-needs">
-  <div class="arrow-block">
-    <div [ngClass]="{hiddenArrow: hidden}" class="arrow">&#10094;</div>
+<div class="main-block">
+  <div class="what-needs">
+    <div class="arrow-block-input">
+      <div [hidden]="!taskList.length"
+           [ngClass]="{clickedArrow: clickedArrow}"
+           (click)="toggleList()" class="arrow-toggle">&#10094;</div>
+    </div>
+    <div class="input-name-block">
+      <input class="input-add-task"
+             placeholder="What needs to be done?"
+             [(ngModel)]="taskName" autofocus
+             (keyup.enter)="addTask()">
+    </div>
   </div>
-  <div class="input-block">
-  	<input class="input" placeholder="What needs to be done?"
-  	  [(ngModel)]="taskName"
-  	  (keyup.enter)="addTask()">
-  </div>
-</div>
-<ul class="block-list">
-  <li class="listOfTasks" *ngFor="let task of listOfTasks; let i = index" [hidden]="task.hidden">
+  <ul class="block-list">
+    <li class="taskList" *ngFor="let task of taskList; let i = index"
+        [hidden]="task.hidden">
     <span class="arrow-circle-block">
-      <span class="circle" (click)="toggleStateOfTask(task.name, i)">
-        <span [@taskStateArrow]="task.state" class="arrow-in-circle">&#10003;</span>	
+      <span [@editableState]="task.editable"
+            class="circle" (click)="toggleStateOfTask(task, i)">
+        <span [@taskStateArrow]="task.state"
+              class="arrow-in-circle">&#10003;</span>
       </span>
     </span>
-    <span class="name-block">
-      <span [@taskStateText]="task.state" class="name-of-task">
-  	    {{task.name}}
+      <span class="name-block" (dblclick)="changeNameOfTask(task, i)">
+      <span id="name">
+        <span [@taskStateText]="task.state" class="name-of-task">
+  	      {{task.name}}
+        </span>
+        <span (click)="deleteTask(task.name, i)" class="cross">&#10005;</span>
       </span>
-      <span (click)="deleteTask(task.name, i)" class="cross">&#10005;</span>
     </span>
-  </li> 	
-</ul>
-<div class="footer">{{quantity}} items left
-<button (click)="showAll()">All</button>
-<a routerLink="/active" (click)="showActive()">active</a>
-<button (click)="showCompleted()">completed</button>
-<button (click)="deleteCompleted()">Clear completed</button>
+    </li>
+  </ul>
+  <div [hidden]="!taskList.length"
+       class="footer">
+    <div class="left-items">
+      <span class="left-items-text">{{countItemsLeft()}} {{items}} left</span>
+    </div>
+    <div class="buttons">
+      <a routerLink=""
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact:true}"
+         (click)="showAll()">All</a>
+      <a routerLink="/active"
+         routerLinkActive="active"
+         (click)="show('active', 'inactive', 'active')">Active</a>
+      <a routerLink="/completed"
+         routerLinkActive="active"
+         (click)="show('completed', 'active', 'inactive')">Completed</a>
+    </div>
+    <div [ngClass]="{'completed-display': countItemsCompleted() === 0}"
+         class="completed">
+      <a (click)="deleteCompleted()">Clear completed</a>
+    </div>
+  </div>
 </div>
-  
+<div [hidden]="!taskList.length"
+      class="rectangles">
+  <div class="footer-bigger-rectangle"></div>
+  <div class="footer-smaller-rectangle"></div>
+</div>

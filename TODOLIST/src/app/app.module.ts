@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { TodolistModule } from './todolist/todolist.module';
+import { TodoListModule } from './todolist/todolist.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    TodolistModule 
+    TodoListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,7 @@
 export interface Task {
 	name: string;
 	state: string;
-	index?: number;
+	index: number;
 	hidden: boolean;
+	editable: string;
 }
