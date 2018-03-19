@@ -1,0 +1,41 @@
+.title {
+	margin-left: 15px;
+}
+
+.button {
+	margin: 15px;
+	padding: 5px;
+	border: 1px solid #3d3c3a;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.table-products {
+	margin: 15px;
+
+	.row-table {
+
+	  .edit-product {
+		color: #2554c7;
+	}
+
+	.price {
+		position: relative;
+
+		.button-delete {
+			position: absolute;
+			right: 30px;
+			padding: 0 3px 0 3px;
+		}
+	}
+}
+
+    
+}
+
+.new-product {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+}		  

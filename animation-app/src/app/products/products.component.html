@@ -1,0 +1,15 @@
+<h1 class="title">Products</h1>
+<button class="button" (click)="newProduct.toggleState()">Add Product</button>
+<table class="table table-products">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>		
+  </tr>
+  <tr class="row-table" *ngFor="let product of products">
+  	<td class="edit-product">{{product.name}}</td>
+  	<td class="price">${{product.price}}
+  	  <button (click)="deleteProduct(product)" class="btn btn-danger btn-sm button-delete">delete</button>
+  	</td>
+  </tr>
+</table>
+<new-product #newProduct class="new-product" ></new-product>
