@@ -1,0 +1,15 @@
+<p class="current-date">{{date | date:"EEEE, d LLLL"}}</p>
+<div class="main-info">
+    <div class="location">{{currentWeather?.name}}, {{currentWeather?.country}}</div>
+    <div class="temperature">{{currentWeather?.temp}} K</div>
+    <div class="condition">
+        <img *ngIf="currentWeather" src="http://openweathermap.org/img/w/{{currentWeather?.icon}}.png" alt="icon">
+        <span>{{currentWeather?.condition}}</span>
+    </div>
+</div>
+<ul class="current-info">
+    <li><b>Pressure:</b> {{currentWeather?.pressure}}</li>
+    <li><b>Humidity:</b> {{currentWeather?.humidity}}</li>
+    <li><b>Wind speed:</b> {{currentWeather?.windSpeed}} m/s</li>
+    <li><b>Clouds:</b> {{currentWeather?.clouds}}%</li>
+</ul>

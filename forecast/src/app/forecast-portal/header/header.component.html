@@ -1,0 +1,13 @@
+<header class="forecast-header">
+    <img *ngIf="currentWeather"
+        src="http://openweathermap.org/img/w/{{currentWeather?.icon}}.png" 
+        alt="icon"
+        class="forecast-current-icon">
+    <span class="forecast-title">Forecast</span>
+    <input type="text"
+           name="city"
+           class="forecast-header-search" 
+           placeholder="Enter city"
+           #city 
+           (keyup.enter)="enterCityName(city.value)">
+</header>

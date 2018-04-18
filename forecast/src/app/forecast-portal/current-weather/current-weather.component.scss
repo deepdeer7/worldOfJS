@@ -1,0 +1,32 @@
+.current-date {
+    margin-top: 10px;
+}
+
+.location, .temperature, .condition {
+    display: flex;
+    justify-content: center;
+}
+
+.location {
+    font-size: 24px;
+}
+
+.temperature {
+    font-size: 32px;
+}
+
+.condition {
+    align-items: center;
+}
+
+.current-info {
+    background-color: #e1e6e2;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 5px 0;
+
+    li {
+        margin: 0 5px;
+    }
+}

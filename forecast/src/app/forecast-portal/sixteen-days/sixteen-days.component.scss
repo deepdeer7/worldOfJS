@@ -1,0 +1,31 @@
+.forecast-sixteen-days {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.conditions {
+    margin: 0;
+    padding: 0;
+
+    .wind-histogram,
+    .temperature-histogram,
+    .pressure-histogram,
+    .humidity-histogram {
+        display: inline-flex;
+        justify-content: flex-start;
+        padding: 3px;
+        border: 1px solid #dcdcdc;
+        margin: 0px; 
+    }
+
+    .wind-histogram {
+        margin-left: 5px;
+    }
+}
+
+.active {
+    background-color: #f5f5f5;
+    border-bottom:1px solid #f5f5f5 !important;
+    font-weight: bold;
+}

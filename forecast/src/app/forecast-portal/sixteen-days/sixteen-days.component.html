@@ -1,0 +1,17 @@
+<div class="forecast-sixteen-days">Forecast 16 days</div>
+<ul class="conditions">
+    <li class="wind-histogram"
+        [ngClass]="{'active': state === 'wind'}">
+            <a (click)="updateState('wind')">Wind</a>
+    </li><li class="temperature-histogram"
+        [ngClass]="{'active': state === 'temperature'}">
+            <a (click)="updateState('temperature')">Temperature</a>
+    </li><li class="pressure-histogram"
+        [ngClass]="{'active': state === 'pressure'}">
+            <a (click)="updateState('pressure')">Pressure</a>
+    </li><li class="humidity-histogram"
+        [ngClass]="{'active': state === 'humidity'}">
+            <a (click)="updateState('humidity')">Humidity</a>
+    </li>
+</ul>
+<forecast-histogram [state]="state"></forecast-histogram>
